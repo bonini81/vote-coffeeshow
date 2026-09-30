@@ -7,6 +7,7 @@
     "emulators": "firebase emulators:start",
     "seed": "node functions/scripts/seed.js",
     "test": "npm --prefix functions test",
+    "test:emu": "firebase emulators:exec --only firestore --project demo-coffeeshow \"npm --prefix functions run test:emu:run\"",
     "lint": "npm --prefix web run lint && npm --prefix functions run lint",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
