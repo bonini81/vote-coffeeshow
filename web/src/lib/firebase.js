@@ -21,7 +21,7 @@ export const functions = getFunctions(app, 'us-central1');
 export const usandoEmuladores = env.DEV && env.VITE_USE_EMULATORS !== 'false';
 
 if (usandoEmuladores) {
-  connectFirestoreEmulator(db, '127.0.0.1', 8080);
+  connectFirestoreEmulator(db, '127.0.0.1', 8085);
   connectAuthEmulator(auth, 'http://127.0.0.1:9099', { disableWarnings: true });
   connectFunctionsEmulator(functions, '127.0.0.1', 5001);
 }
