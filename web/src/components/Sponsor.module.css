@@ -1,0 +1,10 @@
+.sponsor {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  font-size: var(--fs-sm);
+}
+
+.label {
+  font-size: 0.75em;
+}

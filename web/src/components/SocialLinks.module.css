@@ -1,0 +1,34 @@
+.list {
+  display: flex;
+  gap: var(--space-3);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-decoration: none;
+  font-size: 0.625rem;
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.claro .icon {
+  background: var(--color-footer-text);
+}
+
+.oscuro .icon {
+  background: var(--color-text);
+}
+
+.oscuro .label {
+  display: none;
+}

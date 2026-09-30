@@ -1,0 +1,51 @@
+.gracias {
+  display: flex;
+  align-items: center;
+  min-height: 70vh;
+  padding: var(--space-12) 0;
+}
+
+.inner {
+  display: grid;
+  gap: var(--space-8);
+  align-items: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.mensaje {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.texto {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  max-width: 22ch;
+}
+
+@media (min-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr 1.5fr;
+  }
+
+  .brand {
+    align-items: flex-start;
+    text-align: left;
+  }
+}

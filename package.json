@@ -1,0 +1,17 @@
+{
+  "name": "coffeeshow-vote",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm --prefix web run dev",
+    "emulators": "firebase emulators:start",
+    "seed": "node functions/scripts/seed.js",
+    "test": "npm --prefix functions test",
+    "lint": "npm --prefix web run lint && npm --prefix functions run lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3"
+  }
+}

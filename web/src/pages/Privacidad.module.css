@@ -1,0 +1,12 @@
+.texto {
+  max-width: 720px;
+}
+
+.texto h1 {
+  font-size: var(--fs-xl);
+}
+
+.texto h2 {
+  font-size: var(--fs-lg);
+  margin-top: var(--space-6);
+}

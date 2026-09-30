@@ -1,0 +1,22 @@
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  width: 100%;
+}
+
+.box {
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  aspect-ratio: 1;
+}
+
+.circle {
+  border-radius: 50%;
+  background: var(--color-text);
+  aspect-ratio: 1;
+}

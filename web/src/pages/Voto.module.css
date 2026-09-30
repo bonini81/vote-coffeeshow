@@ -1,0 +1,96 @@
+.layout {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.media {
+  display: none;
+}
+
+.title {
+  font-size: var(--fs-xl);
+}
+
+.intro {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  max-width: 420px;
+  margin-top: var(--space-6);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.input {
+  width: 100%;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-bg);
+  color: var(--color-text);
+  /* 16px evita el zoom automático de iOS al enfocar. */
+  font-size: 16px;
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--color-error);
+}
+
+.check {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-start;
+  font-size: var(--fs-sm);
+}
+
+.check input {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  flex: none;
+}
+
+.error {
+  color: var(--color-error);
+  font-size: var(--fs-sm);
+}
+
+.errorGeneral {
+  color: var(--color-error);
+  font-weight: 600;
+  margin: 0;
+}
+
+.captcha {
+  border: 1px dashed var(--color-text-muted);
+  color: var(--color-text-muted);
+  font-size: var(--fs-sm);
+  padding: var(--space-4);
+  text-align: center;
+  max-width: 300px;
+}
+
+.form button[type='submit'] {
+  align-self: flex-start;
+}
+
+@media (min-width: 768px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+    align-items: start;
+  }
+
+  .media {
+    display: flex;
+  }
+}

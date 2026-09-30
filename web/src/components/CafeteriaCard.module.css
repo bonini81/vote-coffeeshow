@@ -1,0 +1,31 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.imageLink {
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  margin-bottom: var(--space-3);
+}
+
+.image {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: var(--fs-base);
+  margin-bottom: var(--space-1);
+}
+
+.desc {
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  max-width: 18ch;
+}
