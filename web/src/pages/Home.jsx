@@ -41,7 +41,7 @@ export default function Home() {
           {cargando && <p className={styles.estado}>Cargando participantes…</p>}
           {error && (
             <p className={styles.estado} role="alert">
-              No pudimos cargar los participantes. Intenta de nuevo en unos minutos.
+              No pudimos cargar los participantes. Intenta de nuevo en unos minutos, gracias.
             </p>
           )}
 

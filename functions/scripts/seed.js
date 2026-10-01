@@ -4,7 +4,7 @@ import { initializeApp } from 'firebase-admin/app';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { CAFETERIAS } from '../../web/src/data/cafeterias.js';
 
-process.env.FIRESTORE_EMULATOR_HOST ??= '127.0.0.1:8080';
+process.env.FIRESTORE_EMULATOR_HOST ??= '127.0.0.1:8085';
 
 initializeApp({ projectId: 'demo-coffeeshow' });
 const db = getFirestore();
