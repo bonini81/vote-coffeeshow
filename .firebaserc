@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "demo-coffeeshow"
-  }
+    "default": "demo-coffeeshow",
+    "staging": "coffeeshow-vote"
+  },
+  "targets": {},
+  "etags": {}
 }
