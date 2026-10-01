@@ -4,9 +4,14 @@ import { initializeApp } from 'firebase-admin/app';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
 import { CAFETERIAS } from '../../web/src/data/cafeterias.js';
 
-process.env.FIRESTORE_EMULATOR_HOST ??= '127.0.0.1:8085';
+// Con `--project <id>` escribe en Firestore real (credenciales por GOOGLE_APPLICATION_CREDENTIALS
+// o `gcloud auth application-default login`); sin él, usa el emulador.
+const projectArg = process.argv.indexOf('--project');
+const projectId = projectArg > -1 ? process.argv[projectArg + 1] : null;
 
-initializeApp({ projectId: 'demo-coffeeshow' });
+if (!projectId) process.env.FIRESTORE_EMULATOR_HOST ??= '127.0.0.1:8085';
+
+initializeApp({ projectId: projectId ?? 'demo-coffeeshow' });
 const db = getFirestore();
 const batch = db.batch();
 
@@ -17,4 +22,4 @@ for (const { id, ...cafeteria } of CAFETERIAS) {
 }
 
 await batch.commit();
-console.log(`Cargadas ${CAFETERIAS.length} cafeterías en ${process.env.FIRESTORE_EMULATOR_HOST}`);
+console.log(`Cargadas ${CAFETERIAS.length} cafeterías en ${projectId ?? process.env.FIRESTORE_EMULATOR_HOST}`);
