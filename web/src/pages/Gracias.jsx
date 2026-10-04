@@ -27,7 +27,7 @@ export default function Gracias() {
               ) : null}{' '}
               fue registrado.
             </p>
-            <Link to="/" className="btn">
+            <Link to="/" className="btn btn--primary">
               Volver al inicio
             </Link>
           </div>

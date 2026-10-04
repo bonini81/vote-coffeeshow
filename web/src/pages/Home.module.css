@@ -1,6 +1,6 @@
 .hero {
-  padding: var(--space-8) 0;
-  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-12) 0;
+  background: var(--color-surface);
 }
 
 .heroInner {
@@ -27,8 +27,10 @@
 }
 
 .llamado {
+  font-size: var(--fs-lg);
   font-weight: 700;
-  max-width: 32ch;
+  color: var(--color-primary);
+  max-width: 28ch;
 }
 
 .intro {
@@ -38,11 +40,11 @@
 }
 
 .intro h2 {
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
 }
 
 .intro p {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-base);
   color: var(--color-text-muted);
 }
 

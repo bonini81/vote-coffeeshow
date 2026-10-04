@@ -10,6 +10,16 @@
   width: 100%;
   max-width: 140px;
   margin-bottom: var(--space-3);
+  border-radius: 50%;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.card:hover .imageLink {
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 4px var(--color-primary-soft), 0 0 0 6px var(--color-primary);
 }
 
 .image {
@@ -21,6 +31,8 @@
 
 .name {
   font-size: var(--fs-base);
+  font-weight: 700;
+  letter-spacing: 0;
   margin-bottom: var(--space-1);
 }
 
@@ -28,4 +40,14 @@
   font-size: var(--fs-sm);
   color: var(--color-text-muted);
   max-width: 18ch;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageLink {
+    transition: none;
+  }
+
+  .card:hover .imageLink {
+    transform: none;
+  }
 }

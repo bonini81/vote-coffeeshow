@@ -21,7 +21,7 @@ export default function EventBanner() {
             <br />
             <span>{EVENTO.lugar}</span>
           </p>
-          <a className="btn btn--sm" href={EVENTO.urlEntradas} target="_blank" rel="noreferrer">
+          <a className="btn btn--primary btn--sm" href={EVENTO.urlEntradas} target="_blank" rel="noreferrer">
             Comprar entradas
           </a>
           {/* TODO: logo Buen Plan */}

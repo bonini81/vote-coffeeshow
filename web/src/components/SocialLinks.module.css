@@ -19,6 +19,7 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  transition: background-color 0.15s ease;
 }
 
 .claro .icon {
@@ -27,6 +28,10 @@
 
 .oscuro .icon {
   background: var(--color-text);
+}
+
+.list a:hover .icon {
+  background: var(--color-primary);
 }
 
 .oscuro .label {

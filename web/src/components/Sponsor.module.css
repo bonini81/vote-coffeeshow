@@ -3,8 +3,15 @@
   flex-direction: column;
   line-height: 1.2;
   font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.sponsor strong {
+  color: var(--color-text);
 }
 
 .label {
   font-size: 0.75em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }

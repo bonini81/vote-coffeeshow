@@ -7,16 +7,20 @@
   color: var(--color-text-muted);
   font-size: var(--fs-sm);
   width: 100%;
+  background: var(--color-surface-strong);
 }
 
 .box {
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
+  border-radius: var(--radius-md);
   aspect-ratio: 1;
 }
 
 .circle {
   border-radius: 50%;
-  background: var(--color-text);
   aspect-ratio: 1;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
 }
