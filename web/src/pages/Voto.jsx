@@ -3,6 +3,7 @@ import { httpsCallable } from 'firebase/functions';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Placeholder from '../components/Placeholder.jsx';
 import PublicLayout from '../components/PublicLayout.jsx';
+import Turnstile from '../components/Turnstile.jsx';
 import { CONCURSO, EVENTO } from '../data/config.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
 import { esCedulaValida, normalizarCedula } from '../lib/cedula.js';
@@ -41,6 +42,8 @@ export default function Voto() {
   const [errores, setErrores] = useState({});
   const [errorGeneral, setErrorGeneral] = useState('');
   const [enviando, setEnviando] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [captchaKey, setCaptchaKey] = useState(0);
 
   const cambiar = (e) => {
     const { name, value, type, checked } = e.target;
@@ -52,6 +55,7 @@ export default function Voto() {
     e.preventDefault();
     setErrorGeneral('');
     const nuevosErrores = validar(datos);
+    if (!turnstileToken) nuevosErrores.turnstile = 'Completa la verificación de seguridad.';
     setErrores(nuevosErrores);
     if (Object.keys(nuevosErrores).length > 0) return;
 
@@ -64,13 +68,15 @@ export default function Voto() {
         cedula: normalizarCedula(datos.cedula),
         email: datos.email.trim(),
         consentimiento: datos.consentimiento,
-        // TODO fase 5: token real del widget de Turnstile.
-        turnstileToken: 'pendiente',
+        turnstileToken,
       });
       const cafeteria = cafeterias.find((c) => c.id === datos.cafeteriaId);
       navigate('/gracias', { replace: true, state: { cafeteria: cafeteria?.nombre } });
     } catch (error) {
       setErrorGeneral(mensajeDeError(error));
+      // El token es de un solo uso: pedimos uno nuevo para el siguiente intento.
+      setTurnstileToken('');
+      setCaptchaKey((k) => k + 1);
     } finally {
       setEnviando(false);
     }
@@ -171,9 +177,9 @@ export default function Voto() {
                 )}
               </div>
 
-              {/* TODO fase 5: widget de Cloudflare Turnstile */}
-              <div className={styles.captcha} aria-hidden="true">
-                Captcha (Turnstile)
+              <div className={styles.field}>
+                <Turnstile key={captchaKey} onToken={setTurnstileToken} />
+                {errores.turnstile && <span className={styles.error}>{errores.turnstile}</span>}
               </div>
 
               {errorGeneral && (
