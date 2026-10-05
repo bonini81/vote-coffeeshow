@@ -1,6 +1,5 @@
 import CafeteriaCard from '../components/CafeteriaCard.jsx';
 import Logo from '../components/Logo.jsx';
-import Placeholder from '../components/Placeholder.jsx';
 import PublicLayout from '../components/PublicLayout.jsx';
 import Sponsor from '../components/Sponsor.jsx';
 import { CONCURSO, EVENTO } from '../data/config.js';
@@ -14,7 +13,6 @@ export default function Home() {
     <PublicLayout conHeader={false}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
-          <Placeholder label="Gráfica principal" className={styles.heroMedia} />
           <div className={styles.heroText}>
             <h1 className={styles.heroTitle}>
               <Logo size="lg" />

@@ -3,11 +3,11 @@
   flex-direction: column;
   line-height: 1.2;
   font-size: var(--fs-sm);
-  color: var(--color-text-muted);
+  color: var(--sponsor-muted, var(--color-text-muted));
 }
 
 .sponsor strong {
-  color: var(--color-text);
+  color: var(--sponsor-strong, var(--color-text));
 }
 
 .label {

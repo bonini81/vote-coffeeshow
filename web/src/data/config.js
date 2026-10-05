@@ -23,4 +23,4 @@ export const REDES = [
   { id: 'facebook', nombre: 'Facebook', url: '#' },
 ];
 
-export const COPYRIGHT = 'Todos los derechos reservados Coffee Show 2027.';
+export const COPYRIGHT = 'Todos los derechos reservados Coffee Show 2027';
