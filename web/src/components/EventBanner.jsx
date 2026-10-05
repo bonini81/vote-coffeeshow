@@ -2,6 +2,8 @@ import { EVENTO } from '../data/config.js';
 import Placeholder from './Placeholder.jsx';
 import styles from './EventBanner.module.css';
 import coffeeShow from '../assets/heros/CoffeShow1.png'
+import buenPlan from '../assets/logos/buenPlan1.png'
+import produbanco from '../assets/logos/AuspiciaProdubanco2.png'
 
 export default function EventBanner() {
   return (
@@ -20,7 +22,8 @@ export default function EventBanner() {
             Comprar entradas
           </a>
           {/* TODO: logo Buen Plan */}
-          <p className={styles.partner}>Buen Plan</p>
+            <img src={buenPlan} alt="Coffee Show banner"/>
+             <img src={produbanco} alt="Coffee Show banner"/>
         </div>
       </div>
     </section>

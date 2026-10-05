@@ -5,6 +5,8 @@ import Sponsor from '../components/Sponsor.jsx';
 import { CONCURSO, EVENTO } from '../data/config.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
 import rutaDelCoffee from '../assets/heros/rutaDelCoffee1.png';
+import produbanco1 from '../assets/logos/AuspiciaProdubanco1.png';
+import thermalimex from '../assets/logos/thermalimex.png';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -18,9 +20,10 @@ export default function Home() {
            
               
               <img src={rutaDelCoffee} width="350px" />
-           
-            <Sponsor />
+                <img src={produbanco1} width="350px" />
+                  
             <p className={styles.llamado}>{CONCURSO.llamado}</p>
+              <img src={thermalimex} width="350px" />
           </div>
         </div>
       </section>
