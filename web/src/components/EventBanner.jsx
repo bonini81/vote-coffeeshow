@@ -1,21 +1,16 @@
 import { EVENTO } from '../data/config.js';
 import Placeholder from './Placeholder.jsx';
 import styles from './EventBanner.module.css';
+import coffeeShow from '../assets/heros/CoffeShow1.png'
 
 export default function EventBanner() {
   return (
     <section className={styles.banner} aria-labelledby="evento-titulo">
       <div className={`container ${styles.inner}`}>
-        <div className={styles.media}>
-          <span className={styles.badge}>
-            <small>Auspicia:</small> <strong>Produbanco</strong>
-          </span>
-          <Placeholder label="Gráfica del evento" />
-        </div>
+     
+      
         <div className={styles.info}>
-          <h2 id="evento-titulo" className={styles.title}>
-            {EVENTO.nombre}
-          </h2>
+             <img src={coffeeShow} alt="Coffee Show banner"/>
           <p className={styles.date}>
             <strong>{EVENTO.fechas}</strong>
             <br />
