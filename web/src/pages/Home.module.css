@@ -60,6 +60,10 @@
   padding: 0;
 }
 
+.imageProdubanco {
+  margin: 15px 0;
+}
+
 @media (min-width: 640px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -84,8 +88,8 @@
 
   .heroText {
     grid-column: 2;
-    text-align: left;
-    align-items: flex-start;
+    text-align: center;
+    align-items: center;
   }
 }
 

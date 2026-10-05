@@ -19,11 +19,11 @@ export default function Home() {
           <div className={styles.heroText}>
            
               
-              <img src={rutaDelCoffee} width="350px" />
-                <img src={produbanco1} width="350px" />
+              <img src={rutaDelCoffee} width="350px" className={styles.imageCoffeeShow} />
+                <img src={produbanco1} width="220px" className={styles.imageProdubanco} />
                   
             <p className={styles.llamado}>{CONCURSO.llamado}</p>
-              <img src={thermalimex} width="350px" />
+              <img src={thermalimex} width="220px" className={styles.imageProdubanco} />
           </div>
         </div>
       </section>
