@@ -18,7 +18,6 @@ export const EVENTO = {
 };
 
 export const REDES = [
-  { id: 'whatsapp', nombre: 'WhatsApp', url: '#' },
   { id: 'instagram', nombre: 'Instagram', url: '#' },
   { id: 'tiktok', nombre: 'TikTok', url: '#' },
   { id: 'facebook', nombre: 'Facebook', url: '#' },
