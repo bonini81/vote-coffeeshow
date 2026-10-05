@@ -4,6 +4,7 @@ import PublicLayout from '../components/PublicLayout.jsx';
 import Sponsor from '../components/Sponsor.jsx';
 import { CONCURSO, EVENTO } from '../data/config.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
+import rutaDelCoffee from '../assets/heros/rutaDelCoffee1.png';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -14,9 +15,10 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroText}>
-            <h1 className={styles.heroTitle}>
-              <Logo size="lg" />
-            </h1>
+           
+              
+              <img src={rutaDelCoffee} width="350px" />
+           
             <Sponsor />
             <p className={styles.llamado}>{CONCURSO.llamado}</p>
           </div>
