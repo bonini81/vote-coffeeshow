@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { httpsCallable } from 'firebase/functions';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
-import Placeholder from '../components/Placeholder.jsx';
+import tazaCafe from '../assets/fondos/tazaCafe.png';
 import PublicLayout from '../components/PublicLayout.jsx';
 import Turnstile from '../components/Turnstile.jsx';
 import { CONCURSO, EVENTO } from '../data/config.js';
@@ -108,15 +108,17 @@ export default function Voto() {
 
   return (
     <PublicLayout cafeteriaSlug={datos.cafeteriaId || undefined}>
-      <section className="section">
+      <section className={`section ${styles.fondo}`}>
         <div className={`container ${styles.layout}`}>
-          <Placeholder label="Gráfica" ratio="3 / 4" className={styles.media} />
+          <div className={styles.media}>
+            <img src={tazaCafe} alt="" />
+          </div>
 
           <div>
-            <h1 className={styles.title}>Vota y participa</h1>
+            <h1 className={styles.title}>¡Vota y participa!</h1>
             <p className={styles.intro}>
               Las {CONCURSO.ganadores} más votadas ganarán un espacio sin costo en la Zona de
-              Especialidad Produbanco dentro del {EVENTO.nombre} y competirán por la taza dorada.
+              Especialidad Produbanco dentro del <strong>{EVENTO.nombre}</strong> y competirán por la taza dorada.
             </p>
 
             <form className={styles.form} onSubmit={enviar} noValidate>

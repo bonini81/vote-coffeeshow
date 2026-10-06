@@ -3,12 +3,38 @@
   gap: var(--space-8);
 }
 
+.fondo {
+  position: relative;
+  overflow: hidden;
+}
+
+.fondo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/fondos/coffeShowCafeteria1.png') center top / contain no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.fondo > * {
+  position: relative;
+}
+
 .media {
-  display: none;
+  display: flex;
+  justify-content: center;
+}
+
+.media img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  object-fit: contain;
 }
 
 .title {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-3xl);
 }
 
 .intro {
@@ -89,7 +115,7 @@
     align-items: start;
   }
 
-  .media {
-    display: flex;
+  .media img {
+    max-width: none;
   }
 }
