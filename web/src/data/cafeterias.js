@@ -38,7 +38,12 @@ export const CAFETERIAS = NOMBRES.map((nombre, orden) => ({
   historia: HISTORIA,
   direccion: 'Lorem ipsum dolor sit amet, consectetuer adipiscing',
   telefono: '0998011457',
-  redes: {},
+  horarioAtencion:  'Lorem ipsum dolor sit amet.',
+  redes: {
+    instagram: 'https://www.instagram.com/',
+    tiktok: 'https://www.tiktok.com/',
+    facebook: 'https://www.facebook.com/',
+  },
   imagenUrl: '',
   videoUrl: '',
   galeria: [],

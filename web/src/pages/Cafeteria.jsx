@@ -39,9 +39,17 @@ export default function Cafeteria() {
           <div className={styles.info}>
             <h1 className={styles.nombre}>{cafeteria.nombre}</h1>
             <p>{cafeteria.historia || cafeteria.descripcion}</p>
+
+                {cafeteria.horarioAtencion && (
+              <p className={styles.dato}>
+                <strong>Horarios de atención:</strong>{' '}
+                {cafeteria.horarioAtencion}
+              </p>
+            )}
+
             {cafeteria.direccion && (
               <p className={styles.dato}>
-                <strong>Dirección:</strong> {cafeteria.direccion}
+                <strong>Ubicación:</strong> {cafeteria.direccion}
               </p>
             )}
             {cafeteria.telefono && (
@@ -50,6 +58,8 @@ export default function Cafeteria() {
                 <a href={`tel:${cafeteria.telefono}`}>{cafeteria.telefono}</a>
               </p>
             )}
+
+            
             <SocialLinks redes={cafeteria.redes} variante="oscuro" />
             <Link to={`/votar?c=${cafeteria.slug}`} className={`btn btn--primary ${styles.votar}`}>
               Votar por {cafeteria.nombre}

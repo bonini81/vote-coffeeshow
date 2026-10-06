@@ -14,11 +14,13 @@ export default function CafeteriaCarousel({ cafeterias }) {
     <div className={styles.carousel}>
       <button
         type="button"
-        className={styles.arrow}
+        className={`${styles.arrow} ${styles.prev}`}
         onClick={() => mover(-1)}
         aria-label="Anteriores"
       >
-        ‹
+        <svg viewBox="0 0 10 12" aria-hidden="true">
+          <path d="M8 0 L0 6 L8 12 Z" />
+        </svg>
       </button>
       <ul className={styles.track} ref={pista}>
         {cafeterias.map((c) => (
@@ -29,11 +31,13 @@ export default function CafeteriaCarousel({ cafeterias }) {
       </ul>
       <button
         type="button"
-        className={styles.arrow}
+        className={`${styles.arrow} ${styles.next}`}
         onClick={() => mover(1)}
         aria-label="Siguientes"
       >
-        ›
+        <svg viewBox="0 0 10 12" aria-hidden="true">
+          <path d="M2 0 L10 6 L2 12 Z" />
+        </svg>
       </button>
     </div>
   );
