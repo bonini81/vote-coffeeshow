@@ -28,7 +28,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="participantes">
+      <section className={`section ${styles.participantes}`} aria-labelledby="participantes">
         <div className="container">
           <header className={styles.intro}>
             <h2 id="participantes">
