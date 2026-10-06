@@ -3,6 +3,7 @@ import CafeteriaCarousel from '../components/CafeteriaCarousel.jsx';
 import Placeholder from '../components/Placeholder.jsx';
 import PublicLayout from '../components/PublicLayout.jsx';
 import SocialLinks from '../components/SocialLinks.jsx';
+import { logoDe } from '../data/logos.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
 import NotFound from './NotFound.jsx';
 import styles from './Cafeteria.module.css';
@@ -42,6 +43,8 @@ export default function Cafeteria() {
           <div className={styles.avatar}>
             {cafeteria.imagenUrl ? (
               <img src={cafeteria.imagenUrl} alt="" className={styles.avatarImg} />
+            ) : logoDe(cafeteria) ? (
+              <img src={logoDe(cafeteria)} alt={`Logo de ${cafeteria.nombre}`} className={styles.logo} />
             ) : (
               <Placeholder shape="circle" label={cafeteria.nombre} />
             )}
