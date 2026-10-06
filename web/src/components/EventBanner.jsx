@@ -23,7 +23,7 @@ export default function EventBanner() {
           </a>
           {/* TODO: logo Buen Plan */}
             <img src={buenPlan} alt="Coffee Show banner" className={styles.imageBuenPlan} />
-             <img src={produbanco} alt="Coffee Show banner"/>
+             <img src={produbanco} alt="Coffee Show banner" className={styles.imageProdubanco}/>
         </div>
       </div>
     </section>

@@ -56,13 +56,13 @@
 
 .date {
   text-transform: uppercase;
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-xl);
   color: #fff;
   margin: var(--space-4) 0;
 }
 
 .date span {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-xl);
   font-weight: 700;
   color: #fff;
 }
@@ -79,11 +79,15 @@ img.imageBuenPlan  {
   margin-bottom: var(--space-4);
 }
 
+img.imageProdubanco {
+  max-width: min(100%, 220px);
+}
+
 /* PC: los granos ocupan la izquierda; el contenido va en la mitad derecha, centrado. */
 @media (min-width: 768px) {
   .banner {
     align-items: center;
-    min-height: min(41.4vw, 640px);
+    min-height: min(41.4vw, 500px);
     padding: var(--space-8) 0;
     background-image: url('../assets/heros/Hero2-Home-PC.jpg');
     background-position: left center;
@@ -95,5 +99,11 @@ img.imageBuenPlan  {
 
   .info {
     grid-column: 2;
+  }
+  .date {
+  font-size: var(--fs-2xl);
+  }
+  .date span {
+  font-size: var(--fs-2xl);
   }
 }
