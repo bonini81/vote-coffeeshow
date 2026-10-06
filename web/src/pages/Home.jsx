@@ -36,8 +36,8 @@ export default function Home() {
             </h2>
             <p>
               Las {CONCURSO.ganadores} más votadas ganarán un espacio sin costo en la Zona de
-              Especialidad Produbanco dentro del {EVENTO.nombre}. Votación desde el{' '}
-              {CONCURSO.inicio} al {CONCURSO.cierre}.
+              Especialidad Produbanco dentro del  <strong>{EVENTO.nombre}. Votación desde el{' '}
+              {CONCURSO.inicio} al {CONCURSO.cierre}.</strong>
             </p>
           </header>
 

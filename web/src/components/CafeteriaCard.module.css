@@ -27,15 +27,15 @@
   display: block;
   width: 32px;
   height: 2px;
-  margin: var(--space-3) 0;
+  margin: var(--space-6) 0;
   background: var(--color-primary);
 }
 
 .name {
-  font-size: var(--fs-lg, 1.25rem);
+  font-size: var(--fs-xl, 1.25rem);
   font-weight: 800;
   letter-spacing: 0;
-  margin-bottom: var(--space-2);
+  margin-bottom: var(--space-4);
 }
 
 @media (prefers-reduced-motion: reduce) {

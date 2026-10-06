@@ -12,17 +12,17 @@ export default function EventBanner() {
      
       
         <div className={styles.info}>
-             <img src={coffeeShow} alt="Coffee Show banner"/>
+             <img src={coffeeShow} alt="Coffee Show banner" />
           <p className={styles.date}>
             <strong>{EVENTO.fechas}</strong>
             <br />
             <span>{EVENTO.lugar}</span>
           </p>
-          <a className="btn btn--primary btn--sm" href={EVENTO.urlEntradas} target="_blank" rel="noreferrer">
-            Comprar entradas
+          <a className="btn btn--naranja btn--lg" href={EVENTO.urlEntradas} target="_blank" rel="noreferrer">
+            Comprar Entradas
           </a>
           {/* TODO: logo Buen Plan */}
-            <img src={buenPlan} alt="Coffee Show banner"/>
+            <img src={buenPlan} alt="Coffee Show banner" className={styles.imageBuenPlan} />
              <img src={produbanco} alt="Coffee Show banner"/>
         </div>
       </div>
