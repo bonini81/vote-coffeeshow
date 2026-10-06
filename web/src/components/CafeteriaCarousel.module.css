@@ -29,25 +29,39 @@
 
 .arrow {
   flex: none;
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--color-text);
-  border-radius: 50%;
-  background: none;
-  color: var(--color-text);
-  font-size: var(--fs-lg);
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  width: 28px;
+  height: 56px;
+  padding: 0;
+  border: 0;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
   cursor: pointer;
-  transition:
-    background-color 0.15s ease,
-    border-color 0.15s ease,
-    color 0.15s ease;
+  transition: filter 0.15s ease;
+}
+
+/* Media luna: lado curvo hacia afuera, lado plano hacia el contenido */
+.prev {
+  justify-content: flex-start;
+  padding-left: 7px;
+  border-radius: 56px 0 0 56px;
+}
+
+.next {
+  justify-content: flex-end;
+  padding-right: 7px;
+  border-radius: 0 56px 56px 0;
+}
+
+.arrow svg {
+  width: 10px;
+  height: 12px;
+  fill: currentColor;
 }
 
 .arrow:hover {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-on-primary);
+  filter: brightness(0.9);
 }
 
 @media (min-width: 640px) {

@@ -4,10 +4,11 @@
  */
 :root {
   --color-bg: #ffffff;
-  --color-surface: #f7f3ef;
+  --color-surface: #F1F1F1;
   --color-surface-strong: #ece5de;
   --color-text: #1d1d1b;
   --color-text-muted: #6b625c;
+  --color-grey-soft: #777474;
   --color-border: #1d1d1b;
   --color-border-soft: #e4dcd4;
   --color-primary: #d91828;

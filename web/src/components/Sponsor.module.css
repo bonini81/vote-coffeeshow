@@ -4,6 +4,7 @@
   line-height: 1.2;
   font-size: var(--fs-sm);
   color: var(--sponsor-muted, var(--color-text-muted));
+  margin-left: var(--space-12);
 }
 
 .sponsor strong {
