@@ -2,16 +2,18 @@
   display: inline-flex;
   flex-direction: column;
   text-decoration: none;
-  line-height: 1.05;
+  line-height: 1.02;
 }
 
 .kicker {
   font-size: 0.7em;
   font-weight: 600;
+  color: var(--logo-kicker, var(--color-primary));
 }
 
 .name {
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .sm {
@@ -23,5 +25,5 @@
 }
 
 .lg {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-3xl);
 }

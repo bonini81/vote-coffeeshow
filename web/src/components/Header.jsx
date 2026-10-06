@@ -12,7 +12,7 @@ export default function Header({ cafeteriaSlug }) {
           <Logo size="sm" />
           <Sponsor />
         </div>
-        <Link to={destino} className="btn btn--sm">
+        <Link to={destino} className="btn btn--primary btn--sm">
           Votar
         </Link>
       </div>

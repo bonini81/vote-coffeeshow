@@ -9,23 +9,41 @@
   display: block;
   width: 100%;
   max-width: 140px;
-  margin-bottom: var(--space-3);
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.card:hover .imageLink {
+  transform: translateY(-3px);
 }
 
 .image {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 50%;
+  object-fit: contain;
+}
+
+.divider {
+  display: block;
+  width: 32px;
+  height: 2px;
+  margin: var(--space-6) 0;
+  background: var(--color-primary);
 }
 
 .name {
-  font-size: var(--fs-base);
-  margin-bottom: var(--space-1);
+  font-size: var(--fs-xl, 1.25rem);
+  font-weight: 800;
+  letter-spacing: 0;
+  margin-bottom: var(--space-4);
 }
 
-.desc {
-  font-size: var(--fs-sm);
-  color: var(--color-text-muted);
-  max-width: 18ch;
+@media (prefers-reduced-motion: reduce) {
+  .imageLink {
+    transition: none;
+  }
+
+  .card:hover .imageLink {
+    transform: none;
+  }
 }

@@ -1,10 +1,12 @@
 import CafeteriaCard from '../components/CafeteriaCard.jsx';
 import Logo from '../components/Logo.jsx';
-import Placeholder from '../components/Placeholder.jsx';
 import PublicLayout from '../components/PublicLayout.jsx';
 import Sponsor from '../components/Sponsor.jsx';
 import { CONCURSO, EVENTO } from '../data/config.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
+import rutaDelCoffee from '../assets/heros/rutaDelCoffee1.png';
+import produbanco1 from '../assets/logos/AuspiciaProdubanco1.png';
+import thermalimex from '../assets/logos/thermalimex.png';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -14,13 +16,14 @@ export default function Home() {
     <PublicLayout conHeader={false}>
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
-          <Placeholder label="Gráfica principal" className={styles.heroMedia} />
           <div className={styles.heroText}>
-            <h1 className={styles.heroTitle}>
-              <Logo size="lg" />
-            </h1>
-            <Sponsor />
+           
+              
+              <img src={rutaDelCoffee} width="350px" className={styles.imageCoffeeShow} />
+                <img src={produbanco1} width="220px" className={styles.imageProdubanco} />
+                  
             <p className={styles.llamado}>{CONCURSO.llamado}</p>
+              <img src={thermalimex} width="220px" className={styles.imageProdubanco} />
           </div>
         </div>
       </section>
@@ -33,8 +36,8 @@ export default function Home() {
             </h2>
             <p>
               Las {CONCURSO.ganadores} más votadas ganarán un espacio sin costo en la Zona de
-              Especialidad Produbanco dentro del {EVENTO.nombre}. Votación desde el{' '}
-              {CONCURSO.inicio} al {CONCURSO.cierre}.
+              Especialidad Produbanco dentro del  <strong>{EVENTO.nombre}. Votación desde el{' '}
+              {CONCURSO.inicio} al {CONCURSO.cierre}.</strong>
             </p>
           </header>
 

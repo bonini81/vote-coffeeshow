@@ -1,6 +1,6 @@
 import styles from './Placeholder.module.css';
 
-/** Caja gris del wireframe. Se reemplaza por imágenes reales cuando lleguen los assets. */
+/** Marcador de posición. Se reemplaza por imágenes reales cuando lleguen los assets. */
 export default function Placeholder({ label, shape = 'box', ratio, className = '' }) {
   return (
     <div
@@ -9,7 +9,7 @@ export default function Placeholder({ label, shape = 'box', ratio, className = '
       role="img"
       aria-label={label}
     >
-      {shape !== 'circle' && <span>{label}</span>}
+      <span aria-hidden="true">{shape === 'circle' ? label?.trim().charAt(0) : label}</span>
     </div>
   );
 }

@@ -1,20 +1,24 @@
 /*
- * Tokens de diseño. Valores PROVISIONALES (wireframe en escala de grises).
- * Cuando llegue el diseño final, cambiar sobre todo este archivo.
+ * Tokens de diseño. Identidad: Onest + rojo #D91828.
+ * Los colores neutros siguen siendo provisionales hasta recibir el diseño final.
  */
 :root {
   --color-bg: #ffffff;
-  --color-surface: #f4f4f4;
+  --color-surface: #f7f3ef;
+  --color-surface-strong: #ece5de;
   --color-text: #1d1d1b;
-  --color-text-muted: #6b6b6b;
+  --color-text-muted: #6b625c;
   --color-border: #1d1d1b;
-  --color-primary: #1d1d1b;
+  --color-border-soft: #e4dcd4;
+  --color-primary: #d91828;
+  --color-primary-hover: #b51320;
+  --color-primary-soft: #fdecee;
   --color-on-primary: #ffffff;
   --color-error: #b3261e;
-  --color-footer-bg: #231f20;
+  --color-footer-bg: #d91828;
   --color-footer-text: #ffffff;
 
-  --font-body: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Onest', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-heading: var(--font-body);
 
   --fs-sm: 0.875rem;
@@ -22,6 +26,7 @@
   --fs-lg: 1.25rem;
   --fs-xl: 1.75rem;
   --fs-2xl: 2.25rem;
+  --fs-3xl: clamp(2.5rem, 7vw, 3.5rem);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -30,9 +35,11 @@
   --space-6: 1.5rem;
   --space-8: 2rem;
   --space-12: 3rem;
+  --space-13: 5rem;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
   --container: 1100px;
   --gutter: 16px;
 }

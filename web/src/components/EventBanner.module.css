@@ -1,12 +1,18 @@
 .banner {
-  padding: var(--space-12) 0;
-  border-top: 1px solid var(--color-border);
+  /* Celular: imagen vertical (611x900); los granos quedan arriba y el contenido abajo. */
+  display: flex;
+  align-items: flex-end;
+  min-height: 147vw;
+  padding: var(--space-8) 0;
+  background: #1a0907 url('../assets/heros/Hero2-Home-Cel.jpg') center top / cover no-repeat;
+  color: #fff;
 }
 
 .inner {
   display: grid;
   gap: var(--space-8);
   align-items: center;
+  width: 100%;
 }
 
 .media {
@@ -21,9 +27,11 @@
   position: absolute;
   top: 0;
   left: calc(-1 * var(--space-2));
+  z-index: 1;
   background: var(--color-bg);
-  border: 1px solid var(--color-border);
-  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 0.12);
+  padding: var(--space-1) var(--space-3);
   font-size: var(--fs-sm);
   line-height: 1.2;
 }
@@ -36,6 +44,11 @@
   gap: var(--space-2);
 }
 
+.info img {
+  max-width: min(100%, 460px);
+  height: auto;
+}
+
 .title {
   font-size: var(--fs-2xl);
   font-weight: 800;
@@ -43,12 +56,15 @@
 
 .date {
   text-transform: uppercase;
-  font-size: var(--fs-lg);
+  font-size: var(--fs-xl);
+  color: #fff;
+  margin: var(--space-4) 0;
 }
 
 .date span {
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xl);
   font-weight: 700;
+  color: #fff;
 }
 
 .partner {
@@ -57,8 +73,37 @@
   margin-top: var(--space-3);
 }
 
+img.imageBuenPlan  {
+  max-width: min(100%, 140px);
+  margin-top: 5px;
+  margin-bottom: var(--space-4);
+}
+
+img.imageProdubanco {
+  max-width: min(100%, 220px);
+}
+
+/* PC: los granos ocupan la izquierda; el contenido va en la mitad derecha, centrado. */
 @media (min-width: 768px) {
+  .banner {
+    align-items: center;
+    min-height: min(41.4vw, 500px);
+    padding: var(--space-8) 0;
+    background-image: url('../assets/heros/Hero2-Home-PC.jpg');
+    background-position: left center;
+  }
+
   .inner {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .info {
+    grid-column: 2;
+  }
+  .date {
+  font-size: var(--fs-2xl);
+  }
+  .date span {
+  font-size: var(--fs-2xl);
   }
 }
