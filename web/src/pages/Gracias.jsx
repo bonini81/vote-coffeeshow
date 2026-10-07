@@ -17,7 +17,7 @@ export default function Gracias() {
             <Sponsor />
           </div>
           <div className={styles.mensaje}>
-          <img src={coffeeShow} width="350px" className={styles.imageCoffeeShow} />
+          <img src={coffeeShow} width="350px" className={styles.graciasImageCoffeeShow} />
             <h1 className={styles.title}>¡Gracias!</h1>
             <p className={styles.texto}>
               Tu voto

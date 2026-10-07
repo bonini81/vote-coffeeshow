@@ -29,6 +29,7 @@
   --fs-xl: 1.75rem;
   --fs-2xl: 2.25rem;
   --fs-3xl: clamp(2.5rem, 7vw, 3.5rem);
+  --fs-4xl: clamp(3.5rem, 7vw, 4.5rem);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
