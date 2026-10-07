@@ -3,9 +3,18 @@ import CafeteriaCarousel from '../components/CafeteriaCarousel.jsx';
 import Placeholder from '../components/Placeholder.jsx';
 import PublicLayout from '../components/PublicLayout.jsx';
 import SocialLinks from '../components/SocialLinks.jsx';
+import { logoDe } from '../data/logos.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
 import NotFound from './NotFound.jsx';
 import styles from './Cafeteria.module.css';
+import foto1 from '../assets/cafeterias/Stratto/stratto1.jpg';
+import foto2 from '../assets/cafeterias/Stratto/stratto2.jpg';
+import foto3 from '../assets/cafeterias/Stratto/stratto3.jpg';
+import foto4 from '../assets/cafeterias/Stratto/stratto4.jpg';
+
+// TODO: datos de relleno hasta recibir los reels y fotos reales de cada cafetería.
+const GALERIA_DEMO = [foto1, foto2, foto3, foto4];
+const REELS_DEMO = ['9bRtFrJOglE', 'F1Tg47BLk4g', 'grFzvY-PoJo', '0uV9nL844Zk'];
 
 export default function Cafeteria() {
   const { slug } = useParams();
@@ -23,15 +32,19 @@ export default function Cafeteria() {
   if (!cafeteria) return <NotFound />;
 
   const otras = cafeterias.filter((c) => c.slug !== slug);
-  const galeria = cafeteria.galeria?.length ? cafeteria.galeria : [null, null, null, null];
+  const galeria = cafeteria.galeria?.length ? cafeteria.galeria : GALERIA_DEMO;
+  const indice = cafeterias.findIndex((c) => c.slug === slug);
+  const reelDemo = REELS_DEMO[indice % REELS_DEMO.length];
 
   return (
     <PublicLayout cafeteriaSlug={cafeteria.slug}>
-      <section className="section">
+      <section className={`section ${styles.principal}`}>
         <div className={`container ${styles.perfil}`}>
           <div className={styles.avatar}>
             {cafeteria.imagenUrl ? (
               <img src={cafeteria.imagenUrl} alt="" className={styles.avatarImg} />
+            ) : logoDe(cafeteria) ? (
+              <img src={logoDe(cafeteria)} alt={`Logo de ${cafeteria.nombre}`} className={styles.logo} />
             ) : (
               <Placeholder shape="circle" label={cafeteria.nombre} />
             )}
@@ -72,7 +85,13 @@ export default function Cafeteria() {
             {cafeteria.videoUrl ? (
               <video src={cafeteria.videoUrl} controls playsInline preload="metadata" />
             ) : (
-              <Placeholder label="Video reel 9:16" ratio="9 / 16" />
+              <iframe
+                src={`https://www.youtube.com/embed/${reelDemo}?rel=0&playsinline=1`}
+                title={`Reel de ${cafeteria.nombre}`}
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
             )}
           </div>
           <ul className={styles.galeria}>
@@ -89,7 +108,7 @@ export default function Cafeteria() {
         </div>
       </section>
 
-      <section className={`section ${styles.otros}`} aria-labelledby="otros">
+      <section className={`section ${styles.principal} ${styles.otros}`} aria-labelledby="otros">
         <div className="container">
           <h2 id="otros" className={styles.otrosTitulo}>
             Ver otros participantes

@@ -1,3 +1,21 @@
+.principal {
+  position: relative;
+  overflow: hidden;
+}
+
+.principal::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/fondos/coffeShowCafeteria1.png') center top / contain no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.principal > * {
+  position: relative;
+}
+
 .perfil {
   display: grid;
   gap: var(--space-6);
@@ -14,6 +32,11 @@
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 0 0 4px var(--color-primary-soft), 0 0 0 6px var(--color-primary);
+}
+
+.logo {
+  width: 100%;
+  object-fit: contain;
 }
 
 .info {
@@ -48,10 +71,12 @@
   align-items: start;
 }
 
-.reel video {
+.reel video,
+.reel iframe {
   width: 100%;
   aspect-ratio: 9 / 16;
   object-fit: cover;
+  border: 0;
   border-radius: var(--radius-md);
 }
 

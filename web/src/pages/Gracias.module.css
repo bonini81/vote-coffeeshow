@@ -3,6 +3,7 @@
   align-items: center;
   min-height: 70vh;
   padding: var(--space-12) 0;
+  background: url('../assets/heros/Hero2-Gracias-Cel.jpg') center / cover no-repeat;
 }
 
 .inner {
@@ -40,6 +41,10 @@
 }
 
 @media (min-width: 768px) {
+  .gracias {
+    background-image: url('../assets/heros/Hero2-Gracias-PC.jpg');
+  }
+
   .inner {
     grid-template-columns: 1fr 1.5fr;
   }
