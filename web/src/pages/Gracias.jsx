@@ -1,21 +1,23 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Logo from '../components/Logo.jsx';
 import PublicLayout from '../components/PublicLayout.jsx';
 import Sponsor from '../components/Sponsor.jsx';
 import styles from './Gracias.module.css';
+import coffeeShow from '../assets/fondos/rutaCoffeShow.png';
 
 export default function Gracias() {
   const { state } = useLocation();
 
   return (
-    <PublicLayout conHeader={false} conEvento={false}>
+    <PublicLayout conHeader={false} conEvento={false} conSponsors>
       <section className={styles.gracias}>
         <div className={`container ${styles.inner}`}>
           <div className={styles.brand}>
-            <Logo size="md" />
+       
             <Sponsor />
           </div>
           <div className={styles.mensaje}>
+          <img src={coffeeShow} width="350px" className={styles.graciasImageCoffeeShow} />
             <h1 className={styles.title}>¡Gracias!</h1>
             <p className={styles.texto}>
               Tu voto
@@ -27,9 +29,7 @@ export default function Gracias() {
               ) : null}{' '}
               fue registrado.
             </p>
-            <Link to="/" className="btn btn--primary">
-              Volver al inicio
-            </Link>
+         
           </div>
         </div>
       </section>

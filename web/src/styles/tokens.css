@@ -10,6 +10,7 @@
   --color-text-muted: #6b625c;
   --color-grey-soft: #777474;
   --color-border: #1d1d1b;
+  --color-border-form-fields: #221E1F;
   --color-border-soft: #e4dcd4;
   --color-primary: #d91828;
   --color-primary-hover: #b51320;
@@ -28,6 +29,7 @@
   --fs-xl: 1.75rem;
   --fs-2xl: 2.25rem;
   --fs-3xl: clamp(2.5rem, 7vw, 3.5rem);
+  --fs-4xl: clamp(3.5rem, 7vw, 4.5rem);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;

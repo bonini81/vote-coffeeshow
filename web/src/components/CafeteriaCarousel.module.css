@@ -66,6 +66,6 @@
 
 @media (min-width: 640px) {
   .track {
-    grid-auto-columns: calc((100% - 2 * var(--space-4)) / 3);
+    grid-auto-columns: calc((100% - 2 * var(--space-4)) / 4);
   }
 }

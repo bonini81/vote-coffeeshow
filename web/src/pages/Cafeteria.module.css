@@ -51,6 +51,7 @@
 .nombre {
   color: black;
   font-size: var(--fs-2xl);
+  text-align: center;
 }
 
 .dato {
@@ -59,13 +60,13 @@
 }
 
 .votar {
-  align-self: flex-start;
+  align-self: center;
   margin-top: var(--space-4);
 }
 
 .media {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-4);
   padding-top: var(--space-12);
   align-items: start;
@@ -107,11 +108,24 @@
 }
 
 @media (min-width: 768px) {
+  
+.nombre {
+  text-align: left;
+}
+
+  .votar {
+    align-self: flex-start;
+  }
+
+  .media {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+
   .perfil {
     grid-template-columns: auto 1fr;
     justify-items: start;
     align-items: start;
-    gap: var(--space-8);
+    gap: var(--space-13);
   }
 
   .avatar {

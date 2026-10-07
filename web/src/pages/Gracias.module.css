@@ -1,7 +1,7 @@
 .gracias {
   display: flex;
-  align-items: center;
-  min-height: 70vh;
+  align-items: flex-end;
+  min-height: 80vh;
   padding: var(--space-12) 0;
   background: url('../assets/heros/Hero2-Gracias-Cel.jpg') center / cover no-repeat;
 }
@@ -29,23 +29,38 @@
 }
 
 .title {
-  font-size: var(--fs-3xl);
-  color: var(--color-primary);
+  font-size: var(--fs-2xl);
+  color: white;
   margin: 0;
 }
 
 .texto {
-  font-size: var(--fs-lg);
-  font-weight: 700;
+  font-size: var(--fs-md);
+  font-weight: 500;
   max-width: 22ch;
+  color: white;
+}
+
+.graciasImageCoffeeShow {
+ margin-bottom: var(--space-4);
+ width: 50%;
 }
 
 @media (min-width: 768px) {
   .gracias {
     background-image: url('../assets/heros/Hero2-Gracias-PC.jpg');
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: var(--space-12) 0;
+  }
+
+  .graciasImageCoffeeShow {
+ margin-bottom: var(--space-13);
+ width: 65%;
   }
 
   .inner {
+    align-items: flex-start;
     grid-template-columns: 1fr 1.5fr;
   }
 
@@ -53,4 +68,13 @@
     align-items: flex-start;
     text-align: left;
   }
+
+  .title {
+    font-size: var(--fs-4xl);
+  }
+
+  .texto {
+  font-size: var(--fs-lg);
+  }
+
 }
