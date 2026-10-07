@@ -8,18 +8,15 @@ export default function PublicLayout({
   children,
   conHeader = true,
   conEvento = true,
+  conSponsors = conEvento,
   cafeteriaSlug,
 }) {
   return (
     <>
       {conHeader && <Header cafeteriaSlug={cafeteriaSlug} />}
       <main>{children}</main>
-      {conEvento && (
-        <>
-          <EventBanner />
-          <SponsorsBar />
-        </>
-      )}
+      {conEvento && <EventBanner />}
+      {conSponsors && <SponsorsBar />}
       <Footer />
     </>
   );

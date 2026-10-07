@@ -30,7 +30,7 @@
 
 .title {
   font-size: var(--fs-3xl);
-  color: var(--color-primary);
+  color: white;
   margin: 0;
 }
 
@@ -38,14 +38,19 @@
   font-size: var(--fs-lg);
   font-weight: 700;
   max-width: 22ch;
+  color: white;
 }
 
 @media (min-width: 768px) {
   .gracias {
     background-image: url('../assets/heros/Hero2-Gracias-PC.jpg');
+    align-items: flex-start;
+    min-height: 80vh;
+    padding: var(--space-12) 0;
   }
 
   .inner {
+    align-items: flex-start;
     grid-template-columns: 1fr 1.5fr;
   }
 
