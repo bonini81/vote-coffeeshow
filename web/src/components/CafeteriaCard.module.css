@@ -26,7 +26,7 @@
 .divider {
   display: block;
   width: 32px;
-  height: 2px;
+  height: 3px;
   margin: var(--space-6) 0;
   background: var(--color-primary);
 }
