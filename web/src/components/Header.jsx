@@ -14,7 +14,7 @@ export default function Header({ cafeteriaSlug }) {
      
     
           <Logo size="sm" />
-          <Sponsor />
+          <Sponsor className={styles.sponsor} />
         </div>
         <Link to={destino} className="btn btn--primary btn--sm">
           Votar
