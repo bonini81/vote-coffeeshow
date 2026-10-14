@@ -38,7 +38,7 @@ export default function Cafeteria() {
 
   return (
     <PublicLayout cafeteriaSlug={cafeteria.slug}>
-      <section className={`section ${styles.principal}`}>
+      <section className={`section ${styles.principal} ${styles.ficha}`}>
         <div className={`container ${styles.perfil}`}>
           <div className={styles.avatar}>
             {cafeteria.imagenUrl ? (

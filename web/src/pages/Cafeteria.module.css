@@ -7,9 +7,15 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../assets/fondos/coffeShowCafeteria1.png') center top / contain no-repeat;
+  background: url('../assets/fondos/coffeShowCafeteria1.png') center center / contain no-repeat;
   opacity: 0.2;
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .principal::before {
+    background-position: center top;
+  }
 }
 
 .principal > * {
@@ -20,6 +26,35 @@
   display: grid;
   gap: var(--space-6);
   justify-items: center;
+}
+
+/* Móvil: el fondo se centra sobre la ficha (logo, nombre, texto y botón),
+   no sobre toda la sección con fotos y reel. */
+.ficha::before {
+  display: none;
+}
+
+.perfil::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/fondos/coffeShowCafeteria1.png') center center / contain no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.perfil > * {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .ficha::before {
+    display: block;
+  }
+
+  .perfil::before {
+    display: none;
+  }
 }
 
 .avatar {
