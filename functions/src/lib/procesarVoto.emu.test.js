@@ -16,6 +16,8 @@ const data = (extra = {}) => ({
   apellido: 'Pérez',
   email: 'ana@example.com',
   cedula: CEDULA,
+  provincia: 'Pichincha',
+  ciudad: 'Quito',
   cafeteriaId: 'stratto',
   turnstileToken: 'token-ok',
   consentimiento: true,

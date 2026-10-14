@@ -56,6 +56,8 @@ export async function procesarVoto({ data, ip, userAgent }, deps) {
     apellido: payload.apellido,
     email,
     cedula,
+    provincia: payload.provincia,
+    ciudad: payload.ciudad,
     cedulaHash,
     ipHash,
     userAgent: String(userAgent ?? '').slice(0, 300),
