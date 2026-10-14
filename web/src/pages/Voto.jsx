@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { httpsCallable } from 'firebase/functions';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
+import kissLeft from '../assets/fondos/kiss-left.png';
+import kissRight from '../assets/fondos/kiss-right.png';
 import tazaCafe from '../assets/fondos/tazaCafe.png';
 import PublicLayout from '../components/PublicLayout.jsx';
 import Turnstile from '../components/Turnstile.jsx';
@@ -108,6 +110,9 @@ export default function Voto() {
 
   return (
     <PublicLayout cafeteriaSlug={datos.cafeteriaId || undefined}>
+      <div className={styles.pagina}>
+      <img src={kissRight} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissTop}`} />
+      <img src={kissLeft} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissBottom}`} />
       <section className={`section ${styles.fondo}`}>
         <div className={`container ${styles.layout}`}>
           <div className={styles.media}>
@@ -197,6 +202,7 @@ export default function Voto() {
           </div>
         </div>
       </section>
+      </div>
     </PublicLayout>
   );
 }

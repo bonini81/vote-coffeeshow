@@ -1,3 +1,38 @@
+/* Envoltorio de la página: los granos decorativos se posicionan respecto a él, fuera de las secciones (que recortan con overflow hidden). */
+.pagina {
+  position: relative;
+  overflow-x: clip;
+}
+
+.kiss {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+/* Arriba a la derecha, pegado al header. */
+.kissTop {
+  width: clamp(56px, 14vw, 140px);
+  top: clamp(-10px, -1vw, 0px);
+  right: -3%;
+}
+
+/* Izquierda, a la altura del logo/ficha. */
+.kissLeft {
+  width: clamp(60px, 15vw, 150px);
+  top: clamp(60px, 14vw, 140px);
+  left: -4%;
+}
+
+/* Derecha, en la unión entre la ficha y "Ver otros participantes". */
+.kissBottom {
+  width: clamp(56px, 14vw, 140px);
+  bottom: clamp(120px, 24vw, 230px);
+  right: -3%;
+}
+
 .principal {
   position: relative;
   overflow: hidden;
