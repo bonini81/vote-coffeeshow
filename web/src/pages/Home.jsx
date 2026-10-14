@@ -54,7 +54,7 @@ export default function Home() {
             </p>
           )}
 
-          <ul className={styles.grid}>
+          <ul className={`${styles.grid} ${cargando || error ? styles.sinFondo : ''}`}>
             {cafeterias.map((c) => (
               <li key={c.id}>
                 <CafeteriaCard cafeteria={c} />

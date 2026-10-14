@@ -24,6 +24,13 @@
   width: clamp(60px, 15vw, 150px);
   bottom: calc(-1 * clamp(30px, 6vw, 60px));
   left: -4%;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .kissBottom {
+    display: block;
+  }
 }
 
 .layout {

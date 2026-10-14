@@ -170,4 +170,9 @@
     background: url('../assets/fondos/fondo-coffeeShow2.jpg') center / contain no-repeat;
     pointer-events: none;
   }
+
+  /* Sin fondo mientras cargan los participantes (o si falla la carga), para no tapar el mensaje. */
+  .sinFondo::before {
+    display: none;
+  }
 }

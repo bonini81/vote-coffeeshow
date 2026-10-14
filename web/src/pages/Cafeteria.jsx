@@ -87,6 +87,7 @@ export default function Cafeteria() {
         </div>
 
         <div className={`container ${styles.media}`}>
+          <img src={kissLeft} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissReel}`} />
           <div className={styles.reel}>
             {cafeteria.videoUrl ? (
               <video src={cafeteria.videoUrl} controls playsInline preload="metadata" />

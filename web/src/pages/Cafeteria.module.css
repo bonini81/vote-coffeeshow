@@ -33,6 +33,28 @@
   right: -3%;
 }
 
+/* Solo móvil: el grano izquierdo va junto al reel, sobre su esquina superior izquierda. */
+.kissLeft {
+  display: none;
+}
+
+.kissReel {
+  width: clamp(60px, 15vw, 150px);
+  top: calc(var(--space-12) - 80px);
+  /* Mitad fuera de la pantalla. */
+  left: calc(-0.5 * clamp(60px, 15vw, 150px));
+}
+
+@media (min-width: 768px) {
+  .kissLeft {
+    display: block;
+  }
+
+  .kissReel {
+    display: none;
+  }
+}
+
 .principal {
   position: relative;
   overflow: hidden;
