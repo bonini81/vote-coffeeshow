@@ -16,7 +16,7 @@ const esYaExiste = (error) =>
  * @returns {Promise<string>} id del voto creado.
  */
 export async function registrarVoto(db, voto) {
-  const { cafeteriaId, nombre, apellido, email, cedulaHash, ipHash, userAgent } = voto;
+  const { cafeteriaId, nombre, apellido, email, cedula, cedulaHash, ipHash, userAgent } = voto;
 
   const cafeteriaRef = db.doc(`cafeterias/${cafeteriaId}`);
   const emailRef = db.doc(`votosPorEmail/${email}`);
@@ -44,6 +44,9 @@ export async function registrarVoto(db, voto) {
         nombre,
         apellido,
         emailNormalizado: email,
+        // Decisión del cliente: el admin debe ver la cédula para validar la identidad del ganador.
+        // Solo legible por admin (reglas de Firestore). La unicidad sigue usando cedulaHash.
+        cedula,
         cedulaHash,
         ipHash,
         userAgent,

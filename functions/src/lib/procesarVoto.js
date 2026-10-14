@@ -43,7 +43,8 @@ export async function procesarVoto({ data, ip, userAgent }, deps) {
     throw new HttpsError('invalid-argument', 'Ingresa una cédula ecuatoriana válida.');
   }
 
-  // Nunca se guarda la cédula ni la IP en claro. El prefijo evita colisiones entre ambos hashes.
+  // La IP nunca se guarda en claro. La cédula se guarda solo en `votos` (lectura admin) y la
+  // unicidad usa su hash. El prefijo evita colisiones entre ambos hashes.
   const cedulaHash = hmacHex(cedula, pepper);
   const ipHash = hmacHex(`ip:${ip ?? 'desconocida'}`, pepper);
 
@@ -54,6 +55,7 @@ export async function procesarVoto({ data, ip, userAgent }, deps) {
     nombre: payload.nombre,
     apellido: payload.apellido,
     email,
+    cedula,
     cedulaHash,
     ipHash,
     userAgent: String(userAgent ?? '').slice(0, 300),

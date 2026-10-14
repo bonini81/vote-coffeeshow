@@ -63,11 +63,14 @@ describe('procesarVoto', () => {
     expect(await votosDe(db, 'stratto')).toBe(1);
   });
 
-  it('nunca guarda la cédula ni la IP en claro', async () => {
+  it('guarda la cédula solo en el voto (para el admin) y nunca la IP en claro', async () => {
     await votar(data());
     const volcado = await volcarTodo();
 
-    expect(volcado).not.toContain(CEDULA);
+    const votos = await db.collection('votos').get();
+    expect(votos.docs[0].data().cedula).toBe(CEDULA);
+    // Los documentos de unicidad solo usan el hash.
+    expect((await db.doc(`votosPorCedula/${CEDULA}`).get()).exists).toBe(false);
     expect(volcado).not.toContain(IP);
     expect(volcado).toContain(hmacHex(CEDULA, PEPPER));
     expect((await db.doc(`votosPorCedula/${hmacHex(CEDULA, PEPPER)}`).get()).exists).toBe(true);
