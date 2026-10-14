@@ -1,3 +1,32 @@
+/* Envoltorio para posicionar los granos decorativos sin generar scroll horizontal. */
+.pagina {
+  position: relative;
+  overflow-x: clip;
+}
+
+.kiss {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+/* Arriba a la derecha, sobresaliendo del borde. */
+.kissTop {
+  width: clamp(56px, 14vw, 130px);
+  top: 38%;
+  right: -3%;
+}
+
+/* Abajo a la izquierda, montado sobre el borde inferior del hero. */
+.kissBottom {
+  width: clamp(60px, 15vw, 150px);
+  bottom: 4%;
+  left: -4%;
+  display: none;
+}
+
 .gracias {
   display: flex;
   align-items: flex-end;
@@ -47,6 +76,14 @@
 }
 
 @media (min-width: 768px) {
+  .kissTop {
+    top: 6%;
+  }
+
+  .kissBottom {
+    display: block;
+  }
+
   .gracias {
     background-image: url('../assets/heros/Hero2-Gracias-PC.jpg');
     align-items: flex-start;

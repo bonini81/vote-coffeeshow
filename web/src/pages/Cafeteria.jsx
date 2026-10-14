@@ -6,6 +6,8 @@ import SocialLinks from '../components/SocialLinks.jsx';
 import { logoDe } from '../data/logos.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
 import NotFound from './NotFound.jsx';
+import kissLeft from '../assets/fondos/kiss-left.png';
+import kissRight from '../assets/fondos/kiss-right.png';
 import styles from './Cafeteria.module.css';
 import foto1 from '../assets/cafeterias/Stratto/stratto1.jpg';
 import foto2 from '../assets/cafeterias/Stratto/stratto2.jpg';
@@ -38,7 +40,11 @@ export default function Cafeteria() {
 
   return (
     <PublicLayout cafeteriaSlug={cafeteria.slug}>
-      <section className={`section ${styles.principal}`}>
+      <div className={styles.pagina}>
+      <img src={kissRight} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissTop}`} />
+      <img src={kissLeft} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissLeft}`} />
+      <img src={kissRight} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissBottom}`} />
+      <section className={`section ${styles.principal} ${styles.ficha}`}>
         <div className={`container ${styles.perfil}`}>
           <div className={styles.avatar}>
             {cafeteria.imagenUrl ? (
@@ -81,6 +87,7 @@ export default function Cafeteria() {
         </div>
 
         <div className={`container ${styles.media}`}>
+          <img src={kissLeft} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissReel}`} />
           <div className={styles.reel}>
             {cafeteria.videoUrl ? (
               <video src={cafeteria.videoUrl} controls playsInline preload="metadata" />
@@ -116,6 +123,7 @@ export default function Cafeteria() {
           <CafeteriaCarousel cafeterias={otras} />
         </div>
       </section>
+      </div>
     </PublicLayout>
   );
 }

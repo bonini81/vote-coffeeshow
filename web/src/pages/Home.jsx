@@ -7,6 +7,8 @@ import { useCafeterias } from '../hooks/useCafeterias.js';
 import rutaDelCoffee from '../assets/heros/rutaDelCoffee1.png';
 import produbanco1 from '../assets/logos/AuspiciaProdubanco1.png';
 import thermalimex from '../assets/logos/thermalimex.png';
+import kissLeft from '../assets/fondos/kiss-left.png';
+import kissRight from '../assets/fondos/kiss-right.png';
 import styles from './Home.module.css';
 
 export default function Home() {
@@ -14,7 +16,9 @@ export default function Home() {
 
   return (
     <PublicLayout conHeader={false}>
+      <div className={styles.page}>
       <section className={styles.hero}>
+        <img src={kissRight} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissHero}`} />
         <div className={`container ${styles.heroInner}`}>
           <div className={styles.heroText}>
            
@@ -29,6 +33,8 @@ export default function Home() {
       </section>
 
       <section className={`section ${styles.participantes}`} aria-labelledby="participantes">
+        <img src={kissLeft} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissLeft}`} />
+        <img src={kissRight} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissBottom}`} />
         <div className="container">
           <header className={styles.intro}>
             <h2 id="participantes">
@@ -48,7 +54,7 @@ export default function Home() {
             </p>
           )}
 
-          <ul className={styles.grid}>
+          <ul className={`${styles.grid} ${cargando || error ? styles.sinFondo : ''}`}>
             {cafeterias.map((c) => (
               <li key={c.id}>
                 <CafeteriaCard cafeteria={c} />
@@ -57,6 +63,7 @@ export default function Home() {
           </ul>
         </div>
       </section>
+      </div>
     </PublicLayout>
   );
 }

@@ -1,3 +1,60 @@
+/* Envoltorio de la página: los granos decorativos se posicionan respecto a él, fuera de las secciones (que recortan con overflow hidden). */
+.pagina {
+  position: relative;
+  overflow-x: clip;
+}
+
+.kiss {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+
+/* Arriba a la derecha, pegado al header. */
+.kissTop {
+  width: clamp(56px, 14vw, 140px);
+  top: clamp(-10px, -1vw, 0px);
+  right: -3%;
+}
+
+/* Izquierda, a la altura del logo/ficha. */
+.kissLeft {
+  width: clamp(60px, 15vw, 150px);
+  top: clamp(60px, 14vw, 140px);
+  left: -4%;
+}
+
+/* Derecha, en la unión entre la ficha y "Ver otros participantes". */
+.kissBottom {
+  width: clamp(56px, 14vw, 140px);
+  bottom: clamp(120px, 24vw, 230px);
+  right: -3%;
+}
+
+/* Solo móvil: el grano izquierdo va junto al reel, sobre su esquina superior izquierda. */
+.kissLeft {
+  display: none;
+}
+
+.kissReel {
+  width: clamp(60px, 15vw, 150px);
+  top: calc(var(--space-12) - 80px);
+  /* Mitad fuera de la pantalla. */
+  left: calc(-0.5 * clamp(60px, 15vw, 150px));
+}
+
+@media (min-width: 768px) {
+  .kissLeft {
+    display: block;
+  }
+
+  .kissReel {
+    display: none;
+  }
+}
+
 .principal {
   position: relative;
   overflow: hidden;
@@ -7,9 +64,15 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../assets/fondos/coffeShowCafeteria1.png') center top / contain no-repeat;
+  background: url('../assets/fondos/coffeShowCafeteria1.png') center center / contain no-repeat;
   opacity: 0.2;
   pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .principal::before {
+    background-position: center top;
+  }
 }
 
 .principal > * {
@@ -20,6 +83,35 @@
   display: grid;
   gap: var(--space-6);
   justify-items: center;
+}
+
+/* Móvil: el fondo se centra sobre la ficha (logo, nombre, texto y botón),
+   no sobre toda la sección con fotos y reel. */
+.ficha::before {
+  display: none;
+}
+
+.perfil::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/fondos/coffeShowCafeteria1.png') center center / contain no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.perfil > * {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .ficha::before {
+    display: block;
+  }
+
+  .perfil::before {
+    display: none;
+  }
 }
 
 .avatar {
