@@ -16,6 +16,10 @@ const NOMBRES = [
   'Atávico',
   "Coati's",
   'Jae',
+  'Cabra Negra',
+  'Guayasamín',
+  'Kafos',
+  'Raymi',
 ];
 
 export function slugify(nombre) {
