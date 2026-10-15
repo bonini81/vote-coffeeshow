@@ -6,6 +6,8 @@ const valido = () => ({
   apellido: 'Pérez',
   email: 'ana@example.com',
   cedula: '1712345675',
+  provincia: 'Pichincha',
+  ciudad: 'Quito',
   cafeteriaId: 'stratto',
   turnstileToken: 'token',
   consentimiento: true,
@@ -29,7 +31,7 @@ describe('validarPayload', () => {
     expect(codigoDe(() => validarPayload(data))).toBe('invalid-argument');
   });
 
-  it.each(['nombre', 'apellido', 'email', 'cedula', 'cafeteriaId', 'turnstileToken'])(
+  it.each(['nombre', 'apellido', 'email', 'cedula', 'ciudad', 'cafeteriaId', 'turnstileToken'])(
     'rechaza si falta %s',
     (campo) => {
       const data = { ...valido(), [campo]: '' };
@@ -55,6 +57,16 @@ describe('validarPayload', () => {
       expect(codigoDe(() => validarPayload({ ...valido(), cafeteriaId }))).toBe('invalid-argument');
     },
   );
+
+  it.each([
+    ['Pichincha', 'Guayaquil'],
+    ['Narnia', 'Quito'],
+    ['__proto__', 'x'],
+  ])('rechaza ciudad que no pertenece a la provincia (%s, %s)', (provincia, ciudad) => {
+    expect(codigoDe(() => validarPayload({ ...valido(), provincia, ciudad }))).toBe(
+      'invalid-argument',
+    );
+  });
 
   it('rechaza nombres demasiado largos', () => {
     expect(codigoDe(() => validarPayload({ ...valido(), nombre: 'x'.repeat(61) }))).toBe(

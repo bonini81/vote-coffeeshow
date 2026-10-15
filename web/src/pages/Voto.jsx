@@ -6,6 +6,7 @@ import kissRight from '../assets/fondos/kiss-right.png';
 import tazaCafe from '../assets/fondos/tazaCafe.png';
 import PublicLayout from '../components/PublicLayout.jsx';
 import Turnstile from '../components/Turnstile.jsx';
+import { CIUDADES_POR_PROVINCIA } from '../data/ciudades.js';
 import { CONCURSO, EVENTO } from '../data/config.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
 import { esCedulaValida, normalizarCedula } from '../lib/cedula.js';
@@ -20,6 +21,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 function validar(datos) {
   const errores = {};
   if (!datos.cafeteriaId) errores.cafeteriaId = 'Selecciona una cafetería.';
+  if (!datos.ciudad) errores.ciudad = 'Selecciona tu ciudad.';
   if (!datos.nombre.trim()) errores.nombre = 'Ingresa tu nombre.';
   if (!datos.apellido.trim()) errores.apellido = 'Ingresa tu apellido.';
   if (!esCedulaValida(datos.cedula)) errores.cedula = 'Ingresa una cédula ecuatoriana válida.';
@@ -38,6 +40,7 @@ export default function Voto() {
     nombre: '',
     apellido: '',
     cedula: '',
+    ciudad: '', // "Provincia|Cantón"
     email: '',
     consentimiento: false,
   });
@@ -55,6 +58,7 @@ export default function Voto() {
 
   const enviar = async (e) => {
     e.preventDefault();
+    const [provincia = '', ciudad = ''] = datos.ciudad.split('|');
     setErrorGeneral('');
     const nuevosErrores = validar(datos);
     if (!turnstileToken) nuevosErrores.turnstile = 'Completa la verificación de seguridad.';
@@ -68,6 +72,8 @@ export default function Voto() {
         nombre: datos.nombre.trim(),
         apellido: datos.apellido.trim(),
         cedula: normalizarCedula(datos.cedula),
+        provincia,
+        ciudad,
         email: datos.email.trim(),
         consentimiento: datos.consentimiento,
         turnstileToken,
@@ -156,6 +162,32 @@ export default function Voto() {
                 maxLength: 12,
                 autoComplete: 'off',
               })}
+              <div className={styles.field}>
+                <label htmlFor="ciudad" className="visually-hidden">
+                  Ciudad
+                </label>
+                <select
+                  id="ciudad"
+                  name="ciudad"
+                  value={datos.ciudad}
+                  onChange={cambiar}
+                  aria-invalid={Boolean(errores.ciudad)}
+                  autoComplete="address-level2"
+                  className={styles.input}
+                >
+                  <option value="">Selecciona tu ciudad</option>
+                  {Object.entries(CIUDADES_POR_PROVINCIA).map(([provincia, ciudades]) => (
+                    <optgroup key={provincia} label={provincia}>
+                      {ciudades.map((ciudad) => (
+                        <option key={`${provincia}|${ciudad}`} value={`${provincia}|${ciudad}`}>
+                          {ciudad}
+                        </option>
+                      ))}
+                    </optgroup>
+                  ))}
+                </select>
+                {errores.ciudad && <span className={styles.error}>{errores.ciudad}</span>}
+              </div>
               {campo('email', 'Email', {
                 type: 'email',
                 autoComplete: 'email',

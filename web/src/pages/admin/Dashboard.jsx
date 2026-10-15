@@ -24,7 +24,6 @@ const fechaDe = (voto) => {
   return fecha ? formatoFecha.format(fecha) : '';
 };
 
-const hashCorto = (hash) => (hash ? `${hash.slice(0, 8)}…` : '');
 
 export default function Dashboard({ usuario }) {
   const { cafeterias } = useCafeterias();
@@ -53,7 +52,14 @@ export default function Dashboard({ usuario }) {
         )
       : query(collection(db, 'votos'), orderBy('creadoEn', 'desc'), limit(TAMANO_PAGINA));
     const snap = await getDocs(consulta);
-    setVotos((prev) => [...prev, ...snap.docs.map((d) => ({ id: d.id, ...d.data() }))]);
+    const nuevos = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    // La primera página reemplaza la lista (StrictMode ejecuta el efecto dos veces en dev);
+    // las siguientes se agregan sin repetir ids.
+    setVotos((prev) => {
+      if (!despuesDe) return nuevos;
+      const ids = new Set(prev.map((v) => v.id));
+      return [...prev, ...nuevos.filter((v) => !ids.has(v.id))];
+    });
     setCursor(snap.docs.at(-1) ?? despuesDe);
     setHayMas(snap.size === TAMANO_PAGINA);
   }, []);
@@ -92,7 +98,7 @@ export default function Dashboard({ usuario }) {
     const q = busqueda.trim().toLowerCase();
     if (!q) return votos;
     return votos.filter((v) =>
-      [v.nombre, v.apellido, v.emailNormalizado, nombreDe(v.cafeteriaId)]
+      [v.nombre, v.apellido, v.emailNormalizado, v.cedula, v.ciudad, nombreDe(v.cafeteriaId)]
         .join(' ')
         .toLowerCase()
         .includes(q),
@@ -123,12 +129,14 @@ export default function Dashboard({ usuario }) {
           v.nombre,
           v.apellido,
           v.emailNormalizado,
-          v.cedulaHash,
+          v.cedula ?? '',
+          v.ciudad ?? '',
+          v.provincia ?? '',
         ];
       });
       descargarCsv(
         `votos-${new Date().toISOString().slice(0, 10)}.csv`,
-        ['Fecha', 'Cafetería', 'Nombre', 'Apellido', 'Email', 'Cédula (hash)'],
+        ['Fecha', 'Cafetería', 'Nombre', 'Apellido', 'Email', 'Cédula', 'Ciudad', 'Provincia'],
         filas,
       );
     } catch {
@@ -192,7 +200,8 @@ export default function Dashboard({ usuario }) {
                   <th>Cafetería</th>
                   <th>Nombre</th>
                   <th>Email</th>
-                  <th>Cédula (hash)</th>
+                  <th>Cédula</th>
+                  <th>Ciudad</th>
                 </tr>
               </thead>
               <tbody>
@@ -204,7 +213,8 @@ export default function Dashboard({ usuario }) {
                       {v.nombre} {v.apellido}
                     </td>
                     <td>{v.emailNormalizado}</td>
-                    <td className={styles.hash}>{hashCorto(v.cedulaHash)}</td>
+                    <td className={styles.hash}>{v.cedula ?? '—'}</td>
+                    <td>{v.ciudad ?? '—'}</td>
                   </tr>
                 ))}
                 {!cargando && filtrados.length === 0 && (

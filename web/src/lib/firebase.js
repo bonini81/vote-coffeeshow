@@ -24,7 +24,8 @@ export const usandoEmuladores = env.DEV && env.VITE_USE_EMULATORS !== 'false';
 // App Check: el emulador no lo exige. Contra Firebase real en desarrollo se usa un token de
 // depuración (aparece en la consola del navegador y hay que registrarlo en App Check > Apps).
 if (!usandoEmuladores && env.VITE_APPCHECK_SITE_KEY) {
-  if (env.DEV) self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
+  // Token fijo (VITE_APPCHECK_DEBUG_TOKEN) para no tener que registrar uno nuevo en cada navegador.
+  if (env.DEV) self.FIREBASE_APPCHECK_DEBUG_TOKEN = env.VITE_APPCHECK_DEBUG_TOKEN || true;
   initializeAppCheck(app, {
     provider: new ReCaptchaEnterpriseProvider(env.VITE_APPCHECK_SITE_KEY),
     isTokenAutoRefreshEnabled: true,
