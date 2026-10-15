@@ -52,7 +52,14 @@ export default function Dashboard({ usuario }) {
         )
       : query(collection(db, 'votos'), orderBy('creadoEn', 'desc'), limit(TAMANO_PAGINA));
     const snap = await getDocs(consulta);
-    setVotos((prev) => [...prev, ...snap.docs.map((d) => ({ id: d.id, ...d.data() }))]);
+    const nuevos = snap.docs.map((d) => ({ id: d.id, ...d.data() }));
+    // La primera página reemplaza la lista (StrictMode ejecuta el efecto dos veces en dev);
+    // las siguientes se agregan sin repetir ids.
+    setVotos((prev) => {
+      if (!despuesDe) return nuevos;
+      const ids = new Set(prev.map((v) => v.id));
+      return [...prev, ...nuevos.filter((v) => !ids.has(v.id))];
+    });
     setCursor(snap.docs.at(-1) ?? despuesDe);
     setHayMas(snap.size === TAMANO_PAGINA);
   }, []);
