@@ -65,6 +65,14 @@ export default function Cafeteria() {
             {cafeteria.direccion && (
               <p className={styles.dato}>
                 <strong>Ubicación:</strong> {cafeteria.direccion}
+                {cafeteria.ubicacionUrl && (
+                  <>
+                    {' '}
+                    <a href={cafeteria.ubicacionUrl} target="_blank" rel="noopener noreferrer">
+                      Ver en el mapa
+                    </a>
+                  </>
+                )}
               </p>
             )}
             {cafeteria.telefono && (
