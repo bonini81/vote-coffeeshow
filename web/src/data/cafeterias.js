@@ -15,9 +15,7 @@ const NOMBRES = [
   "Floyd's",
   'Atávico',
   "Coati's",
-  'Buntura',
   'Jae',
-  'Nuna',
 ];
 
 export function slugify(nombre) {
