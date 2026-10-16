@@ -113,20 +113,6 @@ export const DATOS = [
     }
   },
   {
-    "nombre": "Buntura",
-    "telefono": "0984498913",
-    "historia": "",
-    "horarioAtencion": "",
-    "direccion": "Aliado en Quito:\nWOLFPACK COFFEE LAB & ROASTERS\nMariana de Jesús Oe7A",
-    "ubicacionUrl": "https://maps.app.goo.gl/yND4YMH6vUK46cw3A",
-    "redes": {
-      "instagram": "https://www.instagram.com/buntura_cafe/",
-      "facebook": "https://www.facebook.com/BunturaCafedeEspecialidad/",
-      "tiktok": "",
-      "web": ""
-    }
-  },
-  {
     "nombre": "Palatu",
     "telefono": "0983285065",
     "historia": "Palatu es un espacio donde el café de especialidad, la cocina y el sonido se fusionan y conviven armónicamente. Seleccionamos y trabajamos con café de origen ecuatoriano, acompañado de una propuesta gastronómica y sensorial cuidadosamente construida. Nuestra evolución incorpora la música como un nuevo lenguaje de marca, creando una experiencia contemporánea alrededor del café, el sonido y la cultura.",

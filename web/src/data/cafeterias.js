@@ -18,7 +18,6 @@ const NOMBRES = [
   'Atávico',
   "Coati's",
   'Jae',
-  'Buntura',
   'Cabra Negra',
   'Guayasamín',
   'Kafos',
