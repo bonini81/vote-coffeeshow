@@ -9,13 +9,9 @@ import NotFound from './NotFound.jsx';
 import kissLeft from '../assets/fondos/kiss-left.png';
 import kissRight from '../assets/fondos/kiss-right.png';
 import styles from './Cafeteria.module.css';
-import foto1 from '../assets/cafeterias/Stratto/stratto1.jpg';
-import foto2 from '../assets/cafeterias/Stratto/stratto2.jpg';
-import foto3 from '../assets/cafeterias/Stratto/stratto3.jpg';
-import foto4 from '../assets/cafeterias/Stratto/stratto4.jpg';
+import { galeriaDe } from '../data/galerias.js';
 
-// TODO: datos de relleno hasta recibir los reels y fotos reales de cada cafetería.
-const GALERIA_DEMO = [foto1, foto2, foto3, foto4];
+// TODO: reels de relleno hasta recibir los reales de cada cafetería.
 const REELS_DEMO = ['9bRtFrJOglE', 'F1Tg47BLk4g', 'grFzvY-PoJo', '0uV9nL844Zk'];
 
 export default function Cafeteria() {
@@ -34,7 +30,7 @@ export default function Cafeteria() {
   if (!cafeteria) return <NotFound />;
 
   const otras = cafeterias.filter((c) => c.slug !== slug);
-  const galeria = cafeteria.galeria?.length ? cafeteria.galeria : GALERIA_DEMO;
+  const galeria = cafeteria.galeria?.length ? cafeteria.galeria : galeriaDe(cafeteria);
   const indice = cafeterias.findIndex((c) => c.slug === slug);
   const reelDemo = REELS_DEMO[indice % REELS_DEMO.length];
 
@@ -69,6 +65,14 @@ export default function Cafeteria() {
             {cafeteria.direccion && (
               <p className={styles.dato}>
                 <strong>Ubicación:</strong> {cafeteria.direccion}
+                {cafeteria.ubicacionUrl && (
+                  <>
+                    {' '}
+                    <a href={cafeteria.ubicacionUrl} target="_blank" rel="noopener noreferrer">
+                      Ver en el mapa
+                    </a>
+                  </>
+                )}
               </p>
             )}
             {cafeteria.telefono && (

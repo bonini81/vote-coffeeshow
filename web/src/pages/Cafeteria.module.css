@@ -149,6 +149,7 @@
 .dato {
   color: var(--color-text-muted);
   margin: 0;
+  white-space: pre-line;
 }
 
 .votar {
