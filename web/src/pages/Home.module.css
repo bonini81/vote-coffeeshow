@@ -23,6 +23,61 @@
   position: relative;
 }
 
+/* Premios: el texto va arriba en celular y a la izquierda en PC; los electrodomésticos van dentro de la imagen. */
+.premios {
+  background: #000 url('../assets/heros/Hero3-Home-Cel.jpg') center bottom / 100% auto no-repeat;
+  color: #fff;
+  /* Reserva abajo la zona de la imagen donde están los electrodomésticos. */
+  padding: var(--space-12) 0 72vw;
+  text-align: center;
+}
+
+.premiosText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.holstein {
+  width: 150px;
+  height: auto;
+}
+
+.premiosTitulo {
+  margin: 0;
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  max-width: 14ch;
+}
+
+.premiosLista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.premiosLista li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  font-size: var(--fs-sm);
+}
+
+.premiosLista strong {
+  color: var(--color-primary);
+  font-size: var(--fs-base);
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
 /* Granos decorativos: absolutos, sin interacción, sobre el fondo y bajo el contenido. */
 .kiss {
   position: absolute;
@@ -144,6 +199,46 @@
     grid-column: 2;
     text-align: center;
     align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .premios {
+    background-image: url('../assets/heros/Hero3-Home-PC.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 26vw; /* proporción de la imagen: 1920x500 */
+    padding: var(--space-8) 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  .premiosInner {
+    width: 100%;
+  }
+
+  .premiosText {
+    align-items: flex-start;
+    max-width: 44%;
+    gap: var(--space-4);
+  }
+
+  .holstein {
+    width: 170px;
+  }
+
+  .premiosTitulo {
+    font-size: var(--fs-lg);
+    max-width: 18ch;
+  }
+
+  .premiosLista {
+    gap: var(--space-3);
+  }
+
+  .premiosLista strong {
+    font-size: var(--fs-sm);
   }
 }
 
