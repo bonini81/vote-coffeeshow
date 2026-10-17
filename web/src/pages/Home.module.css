@@ -42,6 +42,7 @@
 .holstein {
   width: 150px;
   height: auto;
+  align-self: center;
 }
 
 .premiosTitulo {
@@ -230,7 +231,8 @@
 
   .premiosTitulo {
     font-size: var(--fs-lg);
-    max-width: 18ch;
+    max-width: 22ch;
+    text-align: center;
   }
 
   .premiosLista {
