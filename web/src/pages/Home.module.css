@@ -77,6 +77,18 @@
   font-weight: 800;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.premiosLista strong::before {
+  content: '';
+  flex: none;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: currentColor;
 }
 
 /* Granos decorativos: absolutos, sin interacción, sobre el fondo y bajo el contenido. */
@@ -221,8 +233,8 @@
 
   .premiosText {
     align-items: flex-start;
-    max-width: 44%;
-    gap: var(--space-4);
+    max-width: 38%;
+    gap: var(--space-6);
   }
 
   .holstein {
