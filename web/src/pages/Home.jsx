@@ -6,7 +6,6 @@ import { CONCURSO, EVENTO } from '../data/config.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
 import rutaDelCoffee from '../assets/heros/rutaDelCoffee1.png';
 import produbanco1 from '../assets/logos/AuspiciaProdubanco1.png';
-import thermalimex from '../assets/logos/thermalimex.png';
 import kissLeft from '../assets/fondos/kiss-left.png';
 import kissRight from '../assets/fondos/kiss-right.png';
 import holstein from '../assets/logos/auspiciaHolstein.png';
@@ -33,8 +32,7 @@ export default function Home() {
               <img src={rutaDelCoffee} width="350px" className={styles.imageCoffeeShow} />
                 <img src={produbanco1} width="220px" className={styles.imageProdubanco} />
                   
-            <p className={styles.llamado}>{CONCURSO.llamado}</p>
-              <img src={thermalimex} width="220px" className={styles.imageProdubanco} />
+
           </div>
         </div>
       </section>
@@ -64,7 +62,7 @@ export default function Home() {
         <div className="container">
           <header className={styles.intro}>
             <h2 id="participantes">
-              Dale click, conoce la historia de cada uno y vota por tu favorito.
+              Dale click, conoce la historia de cada uno y vota por tu favorito
             </h2>
             <p>
               Las {CONCURSO.ganadores} más votadas ganarán un espacio sin costo en la Zona de
