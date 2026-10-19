@@ -168,7 +168,7 @@
 .reel video,
 .reel iframe {
   width: 100%;
-  aspect-ratio: 9 / 18;
+  aspect-ratio: 9 / 16;
   object-fit: cover;
   border: 0;
   border-radius: var(--radius-md);
@@ -223,5 +223,10 @@
 
   .avatar {
     width: 200px;
+  }
+
+  .reel video,
+.reel iframe {
+  aspect-ratio: 9 / 18;
   }
 }
