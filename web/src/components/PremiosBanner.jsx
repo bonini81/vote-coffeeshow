@@ -3,8 +3,8 @@ import styles from './PremiosBanner.module.css';
 
 const PREMIOS = [
   { titulo: 'Premio 1', detalle: '1 Freidora de Aire Digital 8L Holstein Serenity Collection' },
-  { titulo: 'Premio 2', detalle: '5 Cafetera de 12 Tazas Holstein Serenity Collection' },
-  { titulo: 'Premio 3', detalle: '10 Waflera Personal Holstein Serenity Collection' },
+  { titulo: 'Premio 2', detalle: '5 Cafeteras de 12 Tazas Holstein Serenity Collection' },
+  { titulo: 'Premio 3', detalle: '10 Wafleras Personal Holstein Serenity Collection' },
 ];
 
 export default function PremiosBanner() {
@@ -24,6 +24,11 @@ export default function PremiosBanner() {
               </li>
             ))}
           </ul>
+
+            <h2 className={styles.premiosTitulo}>
+              SON 16 GANADORES
+          </h2>
+
         </div>
       </div>
     </section>
