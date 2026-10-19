@@ -62,12 +62,6 @@ export default function Cafeteria() {
               </p>
             )}
 
-            {cafeteria.telefono && (
-              <p className={styles.dato}>
-                <strong>Teléfono:</strong>{' '}
-                <a href={`tel:${cafeteria.telefono}`}>{cafeteria.telefono}</a>
-              </p>
-            )}
             {cafeteria.direccion && (
               <p className={styles.dato}>
                 <strong>Ubicación:</strong> {cafeteria.direccion}

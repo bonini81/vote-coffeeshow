@@ -52,9 +52,8 @@ export const CAFETERIAS = NOMBRES.map((nombre, orden) => {
     historia: d.historia || HISTORIA,
     direccion: d.direccion || 'Lorem ipsum dolor sit amet, consectetuer adipiscing',
     ubicacionUrl: d.ubicacionUrl || '',
-    telefono: d.telefono || '0998011457',
-    // Sin fila en el CSV (dummy); con fila y horario vacío (N/A) no se muestra.
-    horarioAtencion: d.nombre ? d.horarioAtencion : 'Lorem ipsum dolor sit amet.',
+    // Sin fila en el CSV (dummy); con fila y horario vacío se muestra N/A.
+    horarioAtencion: d.nombre ? d.horarioAtencion?.trim() || 'N/A' : 'Lorem ipsum dolor sit amet.',
     redes: Object.keys(redes).length ? redes : REDES_DUMMY,
     imagenUrl: '',
     videoUrl: '',
