@@ -185,7 +185,7 @@
 
 .galeria img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  /*aspect-ratio: 4 / 3;*/
   object-fit: cover;
   border-radius: var(--radius-md);
 }
@@ -223,5 +223,10 @@
 
   .avatar {
     width: 200px;
+  }
+
+  .reel video,
+.reel iframe {
+  aspect-ratio: 9 / 18;
   }
 }

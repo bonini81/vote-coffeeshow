@@ -1,7 +1,7 @@
 // Datos de las cafeterías, generados desde cafeterias.csv. Campos vacíos = pendiente (se usa dato de relleno).
 export const DATOS = [
   {
-    "nombre": "Coati's",
+    "nombre": "Coatis",
     "historia": "COATIS Coffee House es una cafetería de origen y producción propia desde el Valle Sagrado de Vilcabamba. Trabajamos con técnicas especializadas de formación australiana y granos de alta calidad del Ecuador. Somos un espacio para disfrutar, aprender y experimentar con el café de especialidad, donde realizamos catas, talleres, foros y experiencias de laboratorio.",
     "horarioAtencion": "Lunes a viernes: 8:30 a. m. a 7:00 p. m.\nSábados: 11:00 a. m. a 6:00 p. m.",
     "direccion": "Plaza Artigas, Av. La Coruña y Av. 12 de Octubre, frente al redondel de la Plaza Artigas.",
@@ -53,7 +53,7 @@ export const DATOS = [
     }
   },
   {
-    "nombre": "Floyd's",
+    "nombre": "Floyds",
     "historia": "Café filtrado con los mejores granos de café de especialidad de Ecuador que permite que los sabores y aromas destaquen en cada taza. 100% pet-friendly, su nombre es en honor al perrito de los fundadores, convirtiéndolo en el punto de encuentro perfecto ya sea para instalarse a hacer remote office, conversar con amigos los fines de semana, o disfrutar de un relajado after office con sus creativos cócteles con café.",
     "horarioAtencion": "Lunes a Domingo\n8 AM a 7 PM",
     "direccion": "Edificio El Kalifa, Av. de los Shyris 35-98 y, 170102 Quito",
@@ -79,7 +79,7 @@ export const DATOS = [
     }
   },
   {
-    "nombre": "Il Barista",
+    "nombre": "il Barista",
     "historia": "",
     "horarioAtencion": "Lunes a Viernes\n8:30am a 7 pm",
     "direccion": "Edificio Las Cámaras, Av. De La República, y y Av. Río Amazonas, Planta Baja",

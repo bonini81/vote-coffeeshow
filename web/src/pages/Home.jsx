@@ -11,8 +11,39 @@ import kissLeft from '../assets/fondos/kiss-left.png';
 import kissRight from '../assets/fondos/kiss-right.png';
 import styles from './Home.module.css';
 
+// Orden de aparición en la Home (clave = nombre sin tildes ni símbolos). Las no listadas van al final.
+const ORDEN_HOME = [
+  'guayasamin',
+  'raymi',
+  'stratto',
+  'isvar',
+  'legacy',
+  'broz',
+  'palatu',
+  'ilbarista',
+  'floyds',
+  'cabranegra',
+  'atavico',
+  'coatis',
+  'jae',
+  'kafos',
+];
+
+const clave = (c) =>
+  c.nombre
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]/g, '');
+
+const posicion = (c) => {
+  const i = ORDEN_HOME.indexOf(clave(c));
+  return i === -1 ? ORDEN_HOME.length : i;
+};
+
 export default function Home() {
-  const { cafeterias, cargando, error } = useCafeterias();
+  const { cafeterias: lista, cargando, error } = useCafeterias();
+  const cafeterias = [...lista].sort((a, b) => posicion(a) - posicion(b));
 
   return (
     <PublicLayout conHeader={false}>
