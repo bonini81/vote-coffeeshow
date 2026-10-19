@@ -75,12 +75,6 @@ export default function Cafeteria() {
                 )}
               </p>
             )}
-            {cafeteria.telefono && (
-              <p className={styles.dato}>
-                <strong>Teléfono:</strong>{' '}
-                <a href={`tel:${cafeteria.telefono}`}>{cafeteria.telefono}</a>
-              </p>
-            )}
 
             
             <SocialLinks redes={cafeteria.redes} variante="oscuro" />

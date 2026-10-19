@@ -26,6 +26,7 @@
   --fs-sm: 0.875rem;
   --fs-base: 1rem;
   --fs-lg: 1.25rem;
+  --fs-2xlg: 1.50rem;
   --fs-xl: 1.75rem;
   --fs-2xl: 2.25rem;
   --fs-3xl: clamp(2.5rem, 7vw, 3.5rem);

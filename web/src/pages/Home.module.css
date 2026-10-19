@@ -129,7 +129,7 @@
     background-image: url('../assets/heros/Hero-Home-PC.jpg');
     background-size: cover;
     background-position: left 35%;
-    min-height: min(50vw, 720px);
+    min-height: min(40vw, 720px);
     display: flex;
     align-items: center;
     padding: var(--space-12) 0;

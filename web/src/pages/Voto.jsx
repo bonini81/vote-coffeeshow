@@ -4,6 +4,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import kissLeft from '../assets/fondos/kiss-left.png';
 import kissRight from '../assets/fondos/kiss-right.png';
 import tazaCafe from '../assets/fondos/tazaCafe.png';
+import PremiosBanner from '../components/PremiosBanner.jsx';
 import PublicLayout from '../components/PublicLayout.jsx';
 import Turnstile from '../components/Turnstile.jsx';
 import { CIUDADES_POR_PROVINCIA } from '../data/ciudades.js';
@@ -119,6 +120,7 @@ export default function Voto() {
       <div className={styles.pagina}>
       <img src={kissRight} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissTop}`} />
       <img src={kissLeft} alt="" aria-hidden="true" className={`${styles.kiss} ${styles.kissBottom}`} />
+      <PremiosBanner />
       <section className={`section ${styles.fondo}`}>
         <div className={`container ${styles.layout}`}>
           <div className={styles.media}>
