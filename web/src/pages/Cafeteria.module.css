@@ -155,6 +155,7 @@
 .votar {
   align-self: center;
   margin-top: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
 .media {
@@ -208,6 +209,7 @@
 
   .votar {
     align-self: flex-start;
+      margin-bottom: var(--space-4);
   }
 
   .media {

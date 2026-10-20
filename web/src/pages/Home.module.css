@@ -88,7 +88,7 @@
 }
 
 .intro h2 {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-xl);
 }
 
 .intro p {
@@ -125,6 +125,11 @@
 }
 
 @media (min-width: 768px) {
+
+  .intro h2 {
+  font-size: var(--fs-2xl);
+  }
+
   .hero {
     background-image: url('../assets/heros/Hero-Home-PC.jpg');
     background-size: cover;

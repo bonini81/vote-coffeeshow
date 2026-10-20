@@ -5,7 +5,7 @@ import kissLeft from '../assets/fondos/kiss-left.png';
 import kissRight from '../assets/fondos/kiss-right.png';
 import styles from './Gracias.module.css';
 import produbanco from '../assets/logos/AuspiciaProdubanco1.png';
-import coffeeShow from '../assets/fondos/rutaCoffeShow.png';
+import coffeeShow from '../assets/heros/rutaDelCoffee1.png';
 
 export default function Gracias() {
   const { state } = useLocation();
