@@ -43,13 +43,6 @@
   text-align: center;
 }
 
-.brand {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  align-items: center;
-}
-
 .mensaje {
   display: flex;
   flex-direction: column;
@@ -68,6 +61,18 @@
   font-weight: 500;
   max-width: 22ch;
   color: white;
+}
+
+.logoProdubanco {
+  width: 160px;
+  height: auto;
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .logoProdubanco {
+    width: 220px;
+  }
 }
 
 .graciasImageCoffeeShow {
@@ -101,9 +106,8 @@
     grid-template-columns: 1fr 1.5fr;
   }
 
-  .brand {
-    align-items: flex-start;
-    text-align: left;
+  .mensaje {
+    grid-column: 2;
   }
 
   .title {

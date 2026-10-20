@@ -14,13 +14,13 @@ export const EVENTO = {
   fechas: '27 - 28 Febrero',
   lugar: 'CCI - Arena',
   // TODO: link real de venta de entradas.
-  urlEntradas: '#',
+  urlEntradas: 'https://www.buenplan.com.ec/event/coffee-show-supermaxi',
 };
 
 export const REDES = [
-  { id: 'instagram', nombre: 'Instagram', url: '#' },
-  { id: 'tiktok', nombre: 'TikTok', url: '#' },
-  { id: 'facebook', nombre: 'Facebook', url: '#' },
+  { id: 'instagram', nombre: 'Instagram', url: 'https://www.instagram.com/coffeeshowec/' },
+  { id: 'tiktok', nombre: 'TikTok', url: 'https://www.tiktok.com/@coffeeshowec' },
+  { id: 'facebook', nombre: 'Facebook', url: 'https://www.facebook.com/CoffeeShowEc/' },
 ];
 
 export const COPYRIGHT = 'Todos los derechos reservados Coffee Show 2027';
