@@ -25,10 +25,9 @@ export default function PremiosBanner() {
             ))}
           </ul>
 
-            <h2 className={styles.premiosTitulo}>
-              SON 16 GANADORES
+          <h2 className={`${styles.premiosTitulo} ${styles.premiosGanadores}`}>
+            SON 16 GANADORES
           </h2>
-
         </div>
       </div>
     </section>

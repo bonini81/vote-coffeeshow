@@ -29,13 +29,8 @@
     
   }
 
+  /* En celular el logo de Produbanco no se muestra en el header. */
   .brand .sponsor {
-    margin-left: 0;
-    margin-top: var(--space-4);
-  }
-
-  .brand .sponsor img {
-    width: 140px;
-    height: auto;
+    display: none;
   }
 }
