@@ -76,6 +76,8 @@
 
   .premiosText {
     align-items: flex-start;
+    /* Se ajusta al contenido más ancho para que el logo quede centrado respecto a él. */
+    width: fit-content;
     max-width: 38%;
     gap: var(--space-6);
   }
