@@ -130,6 +130,10 @@
   font-size: var(--fs-2xl);
   }
 
+  .intro {
+  margin: 0 auto var(--space-13);
+}
+
   .hero {
     background-image: url('../assets/heros/Hero-Home-PC.jpg');
     background-size: cover;
