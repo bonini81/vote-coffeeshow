@@ -27,7 +27,7 @@ function validar(datos) {
   if (!datos.apellido.trim()) errores.apellido = 'Ingresa tu apellido.';
   if (!esCedulaValida(datos.cedula)) errores.cedula = 'Ingresa una cédula ecuatoriana válida.';
   if (!EMAIL_RE.test(datos.email.trim())) errores.email = 'Ingresa un correo válido.';
-  if (!datos.consentimiento) errores.consentimiento = 'Debes aceptar la política de privacidad.';
+  if (!datos.consentimiento) errores.consentimiento = 'Debes autorizar el tratamiento de tus datos para votar.';
   return errores;
 }
 
@@ -206,11 +206,14 @@ export default function Voto() {
                     aria-invalid={Boolean(errores.consentimiento)}
                   />
                   <span>
-                    He leído y acepto la{' '}
+                    Autorizo el tratamiento de mis datos personales, conforme a lo establecido en su{' '}
                     <Link to="/privacidad" target="_blank">
                       política de privacidad
                     </Link>
-                    .
+                    . Acepto y autorizo recibir información y ofertas a través de plataformas de
+                    mensajería instantánea, email y/o redes sociales, y que mis datos personales
+                    sean comunicados a terceros únicamente para hacer posible esta y futuras
+                    promociones.
                   </span>
                 </label>
                 {errores.consentimiento && (
