@@ -5,7 +5,6 @@ export default function SponsorsBar() {
   return (
     <section className={styles.bar} aria-label="Organizadores">
       <div className={`container ${styles.inner}`}>
-        <br />
         <img src={logoSupermaxiWom} alt="Supermaxi y WOM" />
       </div>
     </section>

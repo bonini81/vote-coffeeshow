@@ -85,33 +85,13 @@
   justify-items: center;
 }
 
-/* Móvil: el fondo se centra sobre la ficha (logo, nombre, texto y botón),
-   no sobre toda la sección con fotos y reel. */
+/* Sin imagen de fondo Coffee Show en la ficha (móvil y escritorio). */
 .ficha::before {
   display: none;
 }
 
-.perfil::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: url('../assets/fondos/coffeShowCafeteria1.png') center center / contain no-repeat;
-  opacity: 0.2;
-  pointer-events: none;
-}
-
 .perfil > * {
   position: relative;
-}
-
-@media (min-width: 768px) {
-  .ficha::before {
-    display: block;
-  }
-
-  .perfil::before {
-    display: none;
-  }
 }
 
 .avatar {
@@ -138,6 +118,7 @@
   max-width: 560px;
   font-size: var(--fs-base);
   color: var(--color-text-muted);
+  text-align: justify;
 }
 
 .nombre {
@@ -155,6 +136,7 @@
 .votar {
   align-self: center;
   margin-top: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
 .media {
@@ -194,6 +176,11 @@
   background: var(--color-surface);
 }
 
+/* Sin imagen de fondo Coffee Show en el carrusel (móvil y escritorio). */
+.otros::before {
+  display: none;
+}
+
 .otrosTitulo {
   text-align: center;
   font-size: var(--fs-2xl);
@@ -208,9 +195,11 @@
 
   .votar {
     align-self: flex-start;
+      margin-bottom: var(--space-4);
   }
 
   .media {
+    padding-top: var(--space-13);
     grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
   }
 

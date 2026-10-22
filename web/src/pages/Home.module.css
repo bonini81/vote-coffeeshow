@@ -84,11 +84,11 @@
 .intro {
   text-align: center;
   max-width: 700px;
-  margin: 0 auto var(--space-8);
+  margin: 0 auto var(--space-12);
 }
 
 .intro h2 {
-  font-size: var(--fs-2xl);
+  font-size: var(--fs-xl);
 }
 
 .intro p {
@@ -103,15 +103,15 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-13) var(--space-4);
+  gap: var(--space-14) var(--space-4);
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .imageCoffeeShow {
-  width: 72%;
-  margin-top: 60px;
+  width: 78%;
+  margin-top: 0px;
 }
 
 .imageProdubanco {
@@ -125,6 +125,15 @@
 }
 
 @media (min-width: 768px) {
+
+  .intro h2 {
+  font-size: var(--fs-2xl);
+  }
+
+  .intro {
+  margin: 0 auto var(--space-13);
+}
+
   .hero {
     background-image: url('../assets/heros/Hero-Home-PC.jpg');
     background-size: cover;
@@ -132,7 +141,7 @@
     min-height: min(40vw, 720px);
     display: flex;
     align-items: center;
-    padding: var(--space-12) 0;
+    padding: var(--space-8) 0;
   }
 
   .heroInner {
@@ -158,7 +167,7 @@
     isolation: isolate;
   }
 
-  /* Marca de agua "Coffee Show" detrás de las 2 últimas columnas, hasta el borde derecho de la pantalla. */
+  /* Marca de agua "Coffee Show" detrás de las 2 últimas columnas, hasta el borde derecho de la pantalla. 
   .grid::before {
     content: '';
     position: absolute;
@@ -169,7 +178,7 @@
     right: 0;
     background: url('../assets/fondos/fondo-coffeeShow2.jpg') center / contain no-repeat;
     pointer-events: none;
-  }
+  } */
 
   /* Sin fondo mientras cargan los participantes (o si falla la carga), para no tapar el mensaje. */
   .sinFondo::before {

@@ -1,7 +1,7 @@
 .banner {
   /* Celular: imagen vertical (611x900); los granos quedan arriba y el contenido abajo. */
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   min-height: 147vw;
   padding: var(--space-8) 0;
   background: #1a0907 url('../assets/heros/Hero2-Home-Cel.jpg') center top / cover no-repeat;
