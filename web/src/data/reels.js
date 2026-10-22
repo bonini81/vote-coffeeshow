@@ -22,7 +22,7 @@ const portadaPorClave = Object.fromEntries(
 
 const REELS = {
   coatis: 'hipDZdlcxmY',
-  cabra: 'qzuzt7tYn4c',
+  cabranegra: 'qzuzt7tYn4c',
   raymi: 'AwpaXHlSTrU',
   kafos: 'osYYhZYvU0k',
   ilbarista: 'vYinFONSLcU',
