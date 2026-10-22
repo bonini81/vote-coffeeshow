@@ -147,8 +147,7 @@
   align-items: start;
 }
 
-.reel video,
-.reel iframe {
+.reel video {
   width: 100%;
   aspect-ratio: 9 / 16;
   object-fit: cover;
@@ -214,8 +213,7 @@
     width: 200px;
   }
 
-  .reel video,
-.reel iframe {
+  .reel video {
   aspect-ratio: 9 / 18;
   }
 }
