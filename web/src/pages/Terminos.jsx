@@ -96,6 +96,8 @@ export default function Terminos() {
             premio será reasignado.
           </li>
         </ul>
+          
+          <p><strong>Vigencia:</strong> Concurso válido hasta el 22 de noviembre. Anuncio de ganadores 24 de noviembre, 2026.</p>
 
         <h2>5. Propiedad Intelectual</h2>
         <p>
