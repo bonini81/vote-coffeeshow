@@ -18,11 +18,14 @@ export default function EventBanner() {
             <br />
             <span>{EVENTO.lugar}</span>
           </p>
-          <a className="btn btn--naranja btn--lg" href={EVENTO.urlEntradas} target="_blank" rel="noreferrer">
-            Comprar Entradas
-          </a>
-          {/* TODO: logo Buen Plan */}
-            <img src={buenPlan} alt="Coffee Show banner" className={styles.imageBuenPlan} />
+          {EVENTO.mostrarEntradas && (
+            <>
+              <a className="btn btn--naranja btn--lg" href={EVENTO.urlEntradas} target="_blank" rel="noreferrer">
+                Comprar Entradas
+              </a>
+              <img src={buenPlan} alt="Buen Plan" className={styles.imageBuenPlan} />
+            </>
+          )}
              <img src={produbanco} alt="Coffee Show banner" className={styles.imageProdubanco}/>
         </div>
       </div>
