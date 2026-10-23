@@ -23,6 +23,7 @@
   --font-body: 'Onest', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --font-heading: var(--font-body);
 
+  --fs-xsm: 0.7rem;
   --fs-sm: 0.875rem;
   --fs-base: 1rem;
   --fs-lg: 1.25rem;

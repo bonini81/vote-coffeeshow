@@ -2,6 +2,8 @@ import { Link, useParams } from 'react-router-dom';
 import CafeteriaCarousel from '../components/CafeteriaCarousel.jsx';
 import Placeholder from '../components/Placeholder.jsx';
 import PublicLayout from '../components/PublicLayout.jsx';
+import ReelPlayer from '../components/ReelPlayer.jsx';
+import { reelDe } from '../data/reels.js';
 import SocialLinks from '../components/SocialLinks.jsx';
 import { logoDe } from '../data/logos.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
@@ -11,7 +13,7 @@ import kissRight from '../assets/fondos/kiss-right.png';
 import styles from './Cafeteria.module.css';
 import { galeriaDe } from '../data/galerias.js';
 
-// TODO: reels de relleno hasta recibir los reales de cada cafetería.
+// Reels de relleno para cafeterías sin Short asignado en data/reels.js.
 const REELS_DEMO = ['9bRtFrJOglE', 'F1Tg47BLk4g', 'grFzvY-PoJo', '0uV9nL844Zk'];
 
 export default function Cafeteria() {
@@ -32,7 +34,7 @@ export default function Cafeteria() {
   const otras = cafeterias.filter((c) => c.slug !== slug);
   const galeria = cafeteria.galeria?.length ? cafeteria.galeria : galeriaDe(cafeteria);
   const indice = cafeterias.findIndex((c) => c.slug === slug);
-  const reelDemo = REELS_DEMO[indice % REELS_DEMO.length];
+  const reel = reelDe(cafeteria);
 
   return (
     <PublicLayout cafeteriaSlug={cafeteria.slug}>
@@ -90,12 +92,10 @@ export default function Cafeteria() {
             {cafeteria.videoUrl ? (
               <video src={cafeteria.videoUrl} controls playsInline preload="metadata" />
             ) : (
-              <iframe
-                src={`https://www.youtube.com/embed/${reelDemo}?rel=0&playsinline=1`}
-                title={`Reel de ${cafeteria.nombre}`}
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                loading="lazy"
+              <ReelPlayer
+                id={reel?.id ?? REELS_DEMO[indice % REELS_DEMO.length]}
+                portada={reel?.portada}
+                titulo={`Reel de ${cafeteria.nombre}`}
               />
             )}
           </div>
