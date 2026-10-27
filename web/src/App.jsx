@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import MetaPixelPageView from './components/MetaPixelPageView.jsx';
 import ScrollToTop from './components/ScrollToTop.jsx';
 import Cafeteria from './pages/Cafeteria.jsx';
 import Gracias from './pages/Gracias.jsx';
@@ -16,6 +17,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <MetaPixelPageView />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/cafeteria/:slug" element={<Cafeteria />} />
