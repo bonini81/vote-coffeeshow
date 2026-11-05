@@ -25,10 +25,18 @@ describe('esCedulaValida', () => {
     },
   );
 
-  it('rechaza tercer dígito >= 6 (RUC de sociedades / públicos)', () => {
-    // Verificador calculado como si fuera persona natural, para aislar la regla del tercer dígito.
-    expect(esCedulaValida('1762345679')).toBe(false);
-    expect(esCedulaValida('1790000000')).toBe(false);
+  it.each(['1762185302', '1762345674'])(
+    'acepta tercer dígito 6 (cédulas de extranjeros residentes) %s',
+    (cedula) => {
+      expect(esCedulaValida(cedula)).toBe(true);
+    },
+  );
+
+  it('rechaza tercer dígito > 6 (RUC de sociedades)', () => {
+    // Verificadores calculados como si fueran persona natural, para aislar la regla del tercer dígito.
+    expect(esCedulaValida('1772345672')).toBe(false);
+    expect(esCedulaValida('1782345670')).toBe(false);
+    expect(esCedulaValida('1792345678')).toBe(false);
   });
 
   it.each(['', '171234567', '17123456755', '17123456a5', 'abcdefghij', null, undefined])(
