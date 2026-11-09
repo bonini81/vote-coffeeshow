@@ -191,6 +191,13 @@ select.input {
   font-size: var(--fs-sm);
 }
 
+.aviso {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0 0 0.75rem;
+}
+
 .errorGeneral {
   color: var(--color-error);
   font-weight: 600;

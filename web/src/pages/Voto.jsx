@@ -11,11 +11,28 @@ import { CIUDADES_POR_PROVINCIA } from '../data/ciudades.js';
 import { CONCURSO, EVENTO } from '../data/config.js';
 import { useCafeterias } from '../hooks/useCafeterias.js';
 import { esCedulaValida, normalizarCedula } from '../lib/cedula.js';
-import { mensajeDeError } from '../lib/errores.js';
+import { ERRORES_REINTENTABLES, mensajeDeError } from '../lib/errores.js';
 import { functions } from '../lib/firebase.js';
+import { enNavegadorInterno } from '../lib/navegador.js';
 import styles from './Voto.module.css';
 
 const submitVote = httpsCallable(functions, 'submitVote');
+const ESPERA_REINTENTO_MS = 1500;
+
+// Reintenta una vez ante caídas de red del cliente. Es seguro: la transacción del servidor
+// impide votos duplicados. Si el servidor ya consumió el token, el reintento fallará y el
+// catch del formulario pedirá un captcha nuevo.
+async function enviarVoto(payload) {
+  try {
+    return await submitVote(payload);
+  } catch (error) {
+    if (!ERRORES_REINTENTABLES.includes(error?.code)) throw error;
+    await new Promise((resolve) => setTimeout(resolve, ESPERA_REINTENTO_MS));
+    return submitVote(payload);
+  }
+}
+
+const AVISO_NAVEGADOR_INTERNO = enNavegadorInterno();
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -50,6 +67,7 @@ export default function Voto() {
   const [enviando, setEnviando] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState('');
   const [captchaKey, setCaptchaKey] = useState(0);
+  const [codigoCaptcha, setCodigoCaptcha] = useState('');
 
   const cambiar = (e) => {
     const { name, value, type, checked } = e.target;
@@ -68,7 +86,7 @@ export default function Voto() {
 
     setEnviando(true);
     try {
-      await submitVote({
+      await enviarVoto({
         cafeteriaId: datos.cafeteriaId,
         nombre: datos.nombre.trim(),
         apellido: datos.apellido.trim(),
@@ -133,6 +151,13 @@ export default function Voto() {
               Las {CONCURSO.ganadores} más votadas ganarán un espacio sin costo en la Zona de
               Especialidad Produbanco dentro del <strong>{EVENTO.nombre}</strong> y competirán por la taza dorada.
             </p>
+
+            {AVISO_NAVEGADOR_INTERNO && (
+              <p className={styles.aviso} role="note">
+                Si tienes problemas para votar, abre esta página en Chrome o Safari (menú ⋯ →
+                «Abrir en el navegador»).
+              </p>
+            )}
 
             <form className={styles.form} onSubmit={enviar} noValidate>
               <div className={styles.field}>
@@ -222,7 +247,13 @@ export default function Voto() {
               </div>
 
               <div className={styles.field}>
-                <Turnstile key={captchaKey} onToken={setTurnstileToken} />
+                <Turnstile key={captchaKey} onToken={setTurnstileToken} onError={setCodigoCaptcha} />
+                {codigoCaptcha && (
+                  <span className={styles.aviso}>
+                    La verificación de seguridad falló (cód: {codigoCaptcha}). Reintentando…
+                    Si persiste, recarga la página o prueba en otro navegador.
+                  </span>
+                )}
                 {errores.turnstile && <span className={styles.error}>{errores.turnstile}</span>}
               </div>
 
