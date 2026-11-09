@@ -25,7 +25,8 @@ export function esCedulaValida(valor) {
   if (!((provincia >= 1 && provincia <= 24) || provincia === 30)) return false;
 
   const tercerDigito = Number(cedula[2]);
-  if (tercerDigito >= 6) return false;
+  // 0–5: ecuatorianos; 6: extranjeros residentes. 7–9 son RUC de sociedades.
+  if (tercerDigito > 6) return false;
 
   const suma = COEFICIENTES.reduce((acc, coef, i) => {
     let producto = Number(cedula[i]) * coef;
