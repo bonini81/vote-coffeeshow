@@ -14,7 +14,7 @@ export const EVENTO = {
   fechas: '27 - 28 Febrero',
   lugar: 'CCI - Arena',
   // Poner en true para mostrar el botón "Comprar Entradas" y el logo de Buen Plan.
-  mostrarEntradas: false,
+  mostrarEntradas: true,
   // TODO: link real de venta de entradas.
   urlEntradas: 'https://www.buenplan.com.ec/event/coffee-show-supermaxi',
 };
